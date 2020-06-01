@@ -1,2 +1,7 @@
 # RW-iOS-Bootcamp-Challenge
-I am one of the 40 lucky participant who were selected for the RW iOS Bootcamp. In this repo I am going to store all the challenges I had to for this Bootcamp
+### MD Abir Hasan Zoha
+### Discord: TM: zoha131
+### Lives in Dhaka, Bangladesh
+### 2 years of Android Development Experience
+### I want to travel all over the world
+
