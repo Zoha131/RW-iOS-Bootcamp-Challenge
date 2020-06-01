@@ -28,7 +28,8 @@ class ViewController: UIViewController {
     private let hueColors = [
         CGColor(srgbRed: 0.96, green: 0.26, blue: 0.21, alpha: 1),
         CGColor(srgbRed: 0.30, green: 0.67, blue: 0.31, alpha: 1),
-        CGColor(srgbRed: 0.13, green: 0.59, blue: 0.95, alpha: 1)
+        CGColor(srgbRed: 0.13, green: 0.59, blue: 0.95, alpha: 1),
+        CGColor(srgbRed: 0.96, green: 0.26, blue: 0.21, alpha: 1)
     ]
     
     private let satColors = [
@@ -189,8 +190,8 @@ class ViewController: UIViewController {
         isRGBActivated = false
         
         setSlider(slider: redSlider, cgColors: hueColors, thumbNormal: #imageLiteral(resourceName: "redSelector"), thumbHighlite: #imageLiteral(resourceName: "redHighlite"))
-        setSlider(slider: greenSlider, cgColors: satColors, thumbNormal: #imageLiteral(resourceName: "greenSelector"), thumbHighlite: #imageLiteral(resourceName: "greenHighlite"))
-        setSlider(slider: blueSlider, cgColors: brightColors, thumbNormal: #imageLiteral(resourceName: "blueSelector"), thumbHighlite: #imageLiteral(resourceName: "blueHighlite"))
+        setSlider(slider: greenSlider, cgColors: satColors, thumbNormal: #imageLiteral(resourceName: "redSelector"), thumbHighlite: #imageLiteral(resourceName: "redHighlite"))
+        setSlider(slider: blueSlider, cgColors: brightColors, thumbNormal: #imageLiteral(resourceName: "brightSelector"), thumbHighlite: #imageLiteral(resourceName: "brightHighlite"))
         
         redLabel.text = "Hue"
         redSlider.maximumValue = 360
