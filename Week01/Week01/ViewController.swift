@@ -72,7 +72,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
-        
         setRadius(view: titleLabel)
         setRadius(view: sliderBgView)
         setUpRGB()
@@ -126,14 +125,14 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func greenSliderMoved(_ slider: UISlider){
+    @IBAction func secondSliderMoved(_ slider: UISlider){
         
         secondSliderValue = Int(slider.value.rounded())
         secondValueTxt.text = String(format: "%03d", secondSliderValue)
         
     }
     
-    @IBAction func blueSliderMoved(_ slider: UISlider){
+    @IBAction func thirdSliderMoved(_ slider: UISlider){
         
         thirdSliderValue = Int(slider.value.rounded())
         thirdValueTxt.text = String(format: "%03d", thirdSliderValue)
@@ -240,12 +239,9 @@ class ViewController: UIViewController {
         
         titleLabel.text = colorName
         
-        print("Red: \(firstSliderValue) green: \(secondSliderValue) blue: \(thirdSliderValue) ")
-        
         let color: UIColor
         
         if isRGBActivated {
-            
             color = UIColor(
                 red: CGFloat(firstSliderValue)/CGFloat(255.00),
                 green: CGFloat(secondSliderValue)/CGFloat(255),
@@ -259,9 +255,6 @@ class ViewController: UIViewController {
                 brightness: CGFloat(thirdSliderValue)/CGFloat(100),
                 alpha: 1)
         }
-        
-        print("Color: \(color)")
-        
         
         UIView.animate(withDuration: 0.30) {
             self.colorView.backgroundColor = color

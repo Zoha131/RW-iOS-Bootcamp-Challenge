@@ -81,7 +81,7 @@
                                                         <rect key="frame" x="-2" y="0.0" width="320" height="31"/>
                                                         <color key="minimumTrackTintColor" red="0.92441579370000004" green="0.76066375819999998" blue="0.20193665220000001" alpha="0.80112906679999996" colorSpace="calibratedRGB"/>
                                                         <connections>
-                                                            <action selector="greenSliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="BF3-6y-ecL"/>
+                                                            <action selector="secondSliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="BF3-6y-ecL"/>
                                                         </connections>
                                                     </slider>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyH-kh-Ubb">
@@ -117,7 +117,7 @@
                                                         <rect key="frame" x="-2" y="0.0" width="320" height="31"/>
                                                         <color key="minimumTrackTintColor" red="0.92441579370000004" green="0.76066375819999998" blue="0.20193665220000001" alpha="0.80112906679999996" colorSpace="calibratedRGB"/>
                                                         <connections>
-                                                            <action selector="blueSliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="393-af-3Sa"/>
+                                                            <action selector="thirdSliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="393-af-3Sa"/>
                                                         </connections>
                                                     </slider>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQr-zP-von">
