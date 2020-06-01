@@ -88,6 +88,20 @@ class ViewController: UIViewController {
         view.layer.masksToBounds = true
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let destination =  segue.destination as? InfoViewController {
+            
+            if self.isRGBActivated{
+                destination.infoUrl = "https://en.wikipedia.org/wiki/RGB_color_model"
+            } else {
+                destination.infoUrl = "https://en.wikipedia.org/wiki/HSB"
+            }
+        }
+    }
+    
+    
     @IBAction func modeChanged(_ sender: Any){
         switch segmentedControll.selectedSegmentIndex {
         case 0:
