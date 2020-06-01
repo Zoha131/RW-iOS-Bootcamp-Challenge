@@ -141,7 +141,25 @@ class ViewController: UIViewController {
     }
     
     @IBAction func setColorAction(){
-        setColor()
+        
+        let atertController = UIAlertController(
+            title: title,
+            message: "Name your color",
+            preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Ok", style: .default, handler: {
+            action in
+            
+            let nameTxtField = atertController.textFields![0]
+            self.colorName = " \(nameTxtField.text!) "
+            self.setColor()
+        })
+        
+        atertController.addAction(action)
+        
+        atertController.addTextField(configurationHandler: nil)
+        
+        present(atertController, animated: true, completion: nil)
     }
     
     @IBAction func reset(){
