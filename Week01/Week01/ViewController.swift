@@ -45,23 +45,23 @@ class ViewController: UIViewController {
     private var isRGBActivated = true
     
     private var colorName = " My Awesome Color "
-    private var redSliderValue = 0
-    private var greenSliderValue = 0
-    private var blueSliderValue = 0
+    private var firstSliderValue = 0
+    private var secondSliderValue = 0
+    private var thirdSliderValue = 0
     
     @IBOutlet weak var segmentedControll: UISegmentedControl!
     
-    @IBOutlet weak var redSlider: UISlider!
-    @IBOutlet weak var greenSlider: UISlider!
-    @IBOutlet weak var blueSlider: UISlider!
+    @IBOutlet weak var firstSlider: UISlider!
+    @IBOutlet weak var secondSlider: UISlider!
+    @IBOutlet weak var thirdSlider: UISlider!
     
-    @IBOutlet weak var redLabel: UILabel!
-    @IBOutlet weak var greenLabel: UILabel!
-    @IBOutlet weak var blueLabel: UILabel!
+    @IBOutlet weak var firstLabel: UILabel!
+    @IBOutlet weak var secondLabel: UILabel!
+    @IBOutlet weak var thirdLabel: UILabel!
     
-    @IBOutlet weak var redValueTxt: UILabel!
-    @IBOutlet weak var greenValueTxt: UILabel!
-    @IBOutlet weak var blueValueTxt: UILabel!
+    @IBOutlet weak var firstValueTxt: UILabel!
+    @IBOutlet weak var secondValueTxt: UILabel!
+    @IBOutlet weak var thirdValueTxt: UILabel!
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var sliderBgView: UIView!
@@ -119,24 +119,24 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func redSliderMoved(_ slider: UISlider){
+    @IBAction func firstSliderMoved(_ slider: UISlider){
         
-        redSliderValue = Int(slider.value.rounded())
-        redValueTxt.text = String(format: "%03d", redSliderValue)
+        firstSliderValue = Int(slider.value.rounded())
+        firstValueTxt.text = String(format: "%03d", firstSliderValue)
         
     }
     
     @IBAction func greenSliderMoved(_ slider: UISlider){
         
-        greenSliderValue = Int(slider.value.rounded())
-        greenValueTxt.text = String(format: "%03d", greenSliderValue)
+        secondSliderValue = Int(slider.value.rounded())
+        secondValueTxt.text = String(format: "%03d", secondSliderValue)
         
     }
     
     @IBAction func blueSliderMoved(_ slider: UISlider){
         
-        blueSliderValue = Int(slider.value.rounded())
-        blueValueTxt.text = String(format: "%03d", blueSliderValue)
+        thirdSliderValue = Int(slider.value.rounded())
+        thirdValueTxt.text = String(format: "%03d", thirdSliderValue)
         
     }
     
@@ -174,30 +174,30 @@ class ViewController: UIViewController {
         
         isRGBActivated = true
         
-        setSlider(slider: redSlider, cgColors: redColors, thumbNormal: #imageLiteral(resourceName: "redSelector"), thumbHighlite: #imageLiteral(resourceName: "redHighlite"))
-        setSlider(slider: greenSlider, cgColors: greenColors, thumbNormal: #imageLiteral(resourceName: "greenSelector"), thumbHighlite: #imageLiteral(resourceName: "greenHighlite"))
-        setSlider(slider: blueSlider, cgColors: blueColors, thumbNormal: #imageLiteral(resourceName: "blueSelector"), thumbHighlite: #imageLiteral(resourceName: "blueHighlite"))
+        setSlider(slider: firstSlider, cgColors: redColors, thumbNormal: #imageLiteral(resourceName: "redSelector"), thumbHighlite: #imageLiteral(resourceName: "redHighlite"))
+        setSlider(slider: secondSlider, cgColors: greenColors, thumbNormal: #imageLiteral(resourceName: "greenSelector"), thumbHighlite: #imageLiteral(resourceName: "greenHighlite"))
+        setSlider(slider: thirdSlider, cgColors: blueColors, thumbNormal: #imageLiteral(resourceName: "blueSelector"), thumbHighlite: #imageLiteral(resourceName: "blueHighlite"))
         
-        redLabel.text = "Red"
-        redSlider.maximumValue = 255
-        redSlider.minimumValue = 0
-        redSliderValue = 255
-        redSlider.value = Float(redSliderValue)
-        redValueTxt.text = String(format: "%03d", redSliderValue)
+        firstLabel.text = "Red"
+        firstSlider.maximumValue = 255
+        firstSlider.minimumValue = 0
+        firstSliderValue = 255
+        firstSlider.value = Float(firstSliderValue)
+        firstValueTxt.text = String(format: "%03d", firstSliderValue)
         
-        greenLabel.text = "Green"
-        greenSlider.maximumValue = 255
-        greenSlider.minimumValue = 0
-        greenSliderValue = 255
-        greenSlider.value = Float(greenSliderValue)
-        greenValueTxt.text = String(format: "%03d", greenSliderValue)
+        secondLabel.text = "Green"
+        secondSlider.maximumValue = 255
+        secondSlider.minimumValue = 0
+        secondSliderValue = 255
+        secondSlider.value = Float(secondSliderValue)
+        secondValueTxt.text = String(format: "%03d", secondSliderValue)
         
-        blueLabel.text = "Blue"
-        blueSlider.maximumValue = 255
-        blueSlider.minimumValue = 0
-        blueSliderValue = 255
-        blueSlider.value = Float(blueSliderValue)
-        blueValueTxt.text = String(format: "%03d", blueSliderValue)
+        thirdLabel.text = "Blue"
+        thirdSlider.maximumValue = 255
+        thirdSlider.minimumValue = 0
+        thirdSliderValue = 255
+        thirdSlider.value = Float(thirdSliderValue)
+        thirdValueTxt.text = String(format: "%03d", thirdSliderValue)
         
         colorName = " My Awesome Color "
         setColor()
@@ -207,30 +207,30 @@ class ViewController: UIViewController {
         
         isRGBActivated = false
         
-        setSlider(slider: redSlider, cgColors: hueColors, thumbNormal: #imageLiteral(resourceName: "redSelector"), thumbHighlite: #imageLiteral(resourceName: "redHighlite"))
-        setSlider(slider: greenSlider, cgColors: satColors, thumbNormal: #imageLiteral(resourceName: "redSelector"), thumbHighlite: #imageLiteral(resourceName: "redHighlite"))
-        setSlider(slider: blueSlider, cgColors: brightColors, thumbNormal: #imageLiteral(resourceName: "brightSelector"), thumbHighlite: #imageLiteral(resourceName: "brightHighlite"))
+        setSlider(slider: firstSlider, cgColors: hueColors, thumbNormal: #imageLiteral(resourceName: "redSelector"), thumbHighlite: #imageLiteral(resourceName: "redHighlite"))
+        setSlider(slider: secondSlider, cgColors: satColors, thumbNormal: #imageLiteral(resourceName: "redSelector"), thumbHighlite: #imageLiteral(resourceName: "redHighlite"))
+        setSlider(slider: thirdSlider, cgColors: brightColors, thumbNormal: #imageLiteral(resourceName: "brightSelector"), thumbHighlite: #imageLiteral(resourceName: "brightHighlite"))
         
-        redLabel.text = "Hue"
-        redSlider.maximumValue = 360
-        redSlider.minimumValue = 0
-        redSliderValue = 360
-        redSlider.value = Float(redSliderValue)
-        redValueTxt.text = String(format: "%03d", redSliderValue)
+        firstLabel.text = "Hue"
+        firstSlider.maximumValue = 360
+        firstSlider.minimumValue = 0
+        firstSliderValue = 360
+        firstSlider.value = Float(firstSliderValue)
+        firstValueTxt.text = String(format: "%03d", firstSliderValue)
         
-        greenLabel.text = "Saturation"
-        greenSlider.maximumValue = 100
-        greenSlider.minimumValue = 0
-        greenSliderValue = 0
-        greenSlider.value = Float(greenSliderValue)
-        greenValueTxt.text = String(format: "%03d", greenSliderValue)
+        secondLabel.text = "Saturation"
+        secondSlider.maximumValue = 100
+        secondSlider.minimumValue = 0
+        secondSliderValue = 0
+        secondSlider.value = Float(secondSliderValue)
+        secondValueTxt.text = String(format: "%03d", secondSliderValue)
         
-        blueLabel.text = "Brightness"
-        blueSlider.maximumValue = 100
-        blueSlider.minimumValue = 0
-        blueSliderValue = 100
-        blueSlider.value = Float(blueSliderValue)
-        blueValueTxt.text = String(format: "%03d", blueSliderValue)
+        thirdLabel.text = "Brightness"
+        thirdSlider.maximumValue = 100
+        thirdSlider.minimumValue = 0
+        thirdSliderValue = 100
+        thirdSlider.value = Float(thirdSliderValue)
+        thirdValueTxt.text = String(format: "%03d", thirdSliderValue)
         
         colorName = " My Awesome Color "
         setColor()
@@ -240,23 +240,23 @@ class ViewController: UIViewController {
         
         titleLabel.text = colorName
         
-        print("Red: \(redSliderValue) green: \(greenSliderValue) blue: \(blueSliderValue) ")
+        print("Red: \(firstSliderValue) green: \(secondSliderValue) blue: \(thirdSliderValue) ")
         
         let color: UIColor
         
         if isRGBActivated {
             
             color = UIColor(
-                red: CGFloat(redSliderValue)/CGFloat(255.00),
-                green: CGFloat(greenSliderValue)/CGFloat(255),
-                blue: CGFloat(blueSliderValue)/CGFloat(255),
+                red: CGFloat(firstSliderValue)/CGFloat(255.00),
+                green: CGFloat(secondSliderValue)/CGFloat(255),
+                blue: CGFloat(thirdSliderValue)/CGFloat(255),
                 alpha: 1)
             
         } else {
             color = UIColor(
-                hue: CGFloat(redSliderValue)/CGFloat(360),
-                saturation: CGFloat(greenSliderValue)/CGFloat(100),
-                brightness: CGFloat(blueSliderValue)/CGFloat(100),
+                hue: CGFloat(firstSliderValue)/CGFloat(360),
+                saturation: CGFloat(secondSliderValue)/CGFloat(100),
+                brightness: CGFloat(thirdSliderValue)/CGFloat(100),
                 alpha: 1)
         }
         

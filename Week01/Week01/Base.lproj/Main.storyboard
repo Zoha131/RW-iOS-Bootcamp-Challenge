@@ -45,7 +45,7 @@
                                                         <rect key="frame" x="-2" y="0.0" width="320" height="31"/>
                                                         <color key="minimumTrackTintColor" red="0.92441579371474625" green="0.76066375822589305" blue="0.20193665222938487" alpha="0.80112906678082196" colorSpace="calibratedRGB"/>
                                                         <connections>
-                                                            <action selector="redSliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="6Q8-uU-Ab9"/>
+                                                            <action selector="firstSliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="8NR-AG-LIU"/>
                                                         </connections>
                                                     </slider>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36k-U6-NzG">
@@ -268,18 +268,18 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="blueLabel" destination="6rW-Q4-O7v" id="tkw-5n-NRs"/>
-                        <outlet property="blueSlider" destination="JNN-87-jeK" id="C2B-ga-GyF"/>
-                        <outlet property="blueValueTxt" destination="JQr-zP-von" id="Vpj-qC-MWt"/>
                         <outlet property="colorView" destination="m3E-ch-QhB" id="maY-qu-Ot7"/>
-                        <outlet property="greenLabel" destination="XXv-Xf-bOW" id="KYa-Ql-JDi"/>
-                        <outlet property="greenSlider" destination="Lzw-5p-IlI" id="E0u-3a-ARY"/>
-                        <outlet property="greenValueTxt" destination="vyH-kh-Ubb" id="v6Y-mK-BeH"/>
-                        <outlet property="redLabel" destination="mRp-Mo-z2m" id="jw9-7Z-XWu"/>
-                        <outlet property="redSlider" destination="szP-S4-ZDR" id="2ml-gP-aZf"/>
-                        <outlet property="redValueTxt" destination="36k-U6-NzG" id="Vqt-Ie-GDP"/>
+                        <outlet property="firstLabel" destination="mRp-Mo-z2m" id="KTp-P4-9tl"/>
+                        <outlet property="firstSlider" destination="szP-S4-ZDR" id="YMp-eg-WD3"/>
+                        <outlet property="firstValueTxt" destination="36k-U6-NzG" id="bP8-2I-Tfz"/>
+                        <outlet property="secondLabel" destination="XXv-Xf-bOW" id="KYa-Ql-JDi"/>
+                        <outlet property="secondSlider" destination="Lzw-5p-IlI" id="E0u-3a-ARY"/>
+                        <outlet property="secondValueTxt" destination="vyH-kh-Ubb" id="v6Y-mK-BeH"/>
                         <outlet property="segmentedControll" destination="sTI-kf-wl5" id="jbG-F8-UMq"/>
                         <outlet property="sliderBgView" destination="Keh-4s-X1W" id="Qqw-cw-dGv"/>
+                        <outlet property="thirdLabel" destination="6rW-Q4-O7v" id="tkw-5n-NRs"/>
+                        <outlet property="thirdSlider" destination="JNN-87-jeK" id="C2B-ga-GyF"/>
+                        <outlet property="thirdValueTxt" destination="JQr-zP-von" id="Vpj-qC-MWt"/>
                         <outlet property="titleLabel" destination="cUW-fB-plP" id="sNo-Id-KbU"/>
                     </connections>
                 </viewController>
