@@ -6,6 +6,13 @@
 //  Copyright © 2020 Zoha. All rights reserved.
 //
 
+/**
+ * I have added semi transparent background behind all the sliders and Title UILabel,
+ * so that user can easily see the text and slider even if the selected color is same 
+ */
+
+
+
 import UIKit
 
 class ViewController: UIViewController {
@@ -44,7 +51,6 @@ class ViewController: UIViewController {
     
     private var isRGBActivated = true
     
-    private var colorName = " My Awesome Color "
     private var firstSliderValue = 0
     private var secondSliderValue = 0
     private var thirdSliderValue = 0
@@ -71,42 +77,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
+        
         setRadius(view: titleLabel)
         setRadius(view: sliderBgView)
         setUpRGB()
     }
     
-    
     private func setRadius(view: UIView){
         view.layer.cornerRadius = radius
         view.layer.masksToBounds = true
-    }
-    
-    private func setSlider(slider:UISlider, cgColors: [CGColor], thumbNormal: UIImage, thumbHighlite: UIImage) {
-        let tgl = CAGradientLayer()
-        let frame = CGRect.init(x:0, y:0, width:slider.frame.size.width, height:10)
-        tgl.frame = frame
-        tgl.cornerRadius = 5
-        tgl.masksToBounds = true
-        tgl.colors = cgColors
-        tgl.startPoint = CGPoint.init(x:0.0, y:0.5)
-        tgl.endPoint = CGPoint.init(x:1.0, y:0.5)
-
-        UIGraphicsBeginImageContextWithOptions(tgl.frame.size, tgl.isOpaque, 0.0);
-        tgl.render(in: UIGraphicsGetCurrentContext()!)
-        if let image = UIGraphicsGetImageFromCurrentImageContext() {
-            UIGraphicsEndImageContext()
-
-            image.resizableImage(withCapInsets: UIEdgeInsets.zero)
-
-            slider.setMinimumTrackImage(image, for: .normal)
-            slider.setMaximumTrackImage(image, for: .normal)
-            
-            slider.setThumbImage(thumbNormal, for: .normal)
-            slider.setThumbImage(thumbHighlite, for: .highlighted)
-
-        }
     }
     
     @IBAction func modeChanged(_ sender: Any){
@@ -150,8 +129,8 @@ class ViewController: UIViewController {
             action in
             
             let nameTxtField = atertController.textFields![0]
-            self.colorName = " \(nameTxtField.text!) "
-            self.setColor()
+            
+            self.setColor(colorName: " \(nameTxtField.text!) ")
         })
         
         atertController.addAction(action)
@@ -198,8 +177,7 @@ class ViewController: UIViewController {
         thirdSlider.value = Float(thirdSliderValue)
         thirdValueTxt.text = String(format: "%03d", thirdSliderValue)
         
-        colorName = " My Awesome Color "
-        setColor()
+        setColor(colorName: " My Awesome Color ")
     }
     
     private func setUpHSB(){
@@ -231,11 +209,35 @@ class ViewController: UIViewController {
         thirdSlider.value = Float(thirdSliderValue)
         thirdValueTxt.text = String(format: "%03d", thirdSliderValue)
         
-        colorName = " My Awesome Color "
-        setColor()
+        setColor(colorName: " My Awesome Color ")
     }
-
-    private func setColor(){
+    
+    private func setSlider(slider:UISlider, cgColors: [CGColor], thumbNormal: UIImage, thumbHighlite: UIImage) {
+        let tgl = CAGradientLayer()
+        tgl.frame = CGRect.init(x:0, y:0, width:slider.frame.size.width, height:10)
+        tgl.cornerRadius = 5
+        tgl.masksToBounds = true
+        tgl.colors = cgColors
+        tgl.startPoint = CGPoint.init(x:0.0, y:0.5)
+        tgl.endPoint = CGPoint.init(x:1.0, y:0.5)
+        
+        UIGraphicsBeginImageContextWithOptions(tgl.frame.size, tgl.isOpaque, 0.0);
+        tgl.render(in: UIGraphicsGetCurrentContext()!)
+        if let image = UIGraphicsGetImageFromCurrentImageContext() {
+            UIGraphicsEndImageContext()
+            
+            image.resizableImage(withCapInsets: UIEdgeInsets.zero)
+            
+            slider.setMinimumTrackImage(image, for: .normal)
+            slider.setMaximumTrackImage(image, for: .normal)
+            
+            slider.setThumbImage(thumbNormal, for: .normal)
+            slider.setThumbImage(thumbHighlite, for: .highlighted)
+            
+        }
+    }
+    
+    private func setColor(colorName: String){
         
         titleLabel.text = colorName
         
@@ -260,6 +262,6 @@ class ViewController: UIViewController {
             self.colorView.backgroundColor = color
         }
     }
-
+    
 }
 
