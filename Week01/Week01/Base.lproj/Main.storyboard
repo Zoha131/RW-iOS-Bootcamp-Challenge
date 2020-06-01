@@ -161,6 +161,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2k-ao-rzX">
                                         <rect key="frame" x="324" y="0.0" width="50" height="50"/>
                                         <state key="normal" image="infoButton"/>
+                                        <connections>
+                                            <segue destination="P08-wr-N9J" kind="presentation" id="Fb8-tJ-kBJ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -284,9 +287,51 @@
             </objects>
             <point key="canvasLocation" x="136.23188405797103" y="137.27678571428569"/>
         </scene>
+        <!--Info View Controller-->
+        <scene sceneID="IkC-hd-Ux3">
+            <objects>
+                <viewController id="P08-wr-N9J" customClass="InfoViewController" customModule="Fun_Color" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KqO-UO-EY0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dhg-ma-MDh">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qX2-zJ-zQG">
+                                <rect key="frame" x="321" y="744" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="close" destination="P08-wr-N9J" eventType="touchUpInside" id="tjl-sT-S64"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gRH-lZ-ByZ" firstAttribute="trailing" secondItem="Dhg-ma-MDh" secondAttribute="trailing" id="SHQ-eF-ceN"/>
+                            <constraint firstItem="Dhg-ma-MDh" firstAttribute="top" secondItem="gRH-lZ-ByZ" secondAttribute="top" id="W6H-hy-c9c"/>
+                            <constraint firstItem="Dhg-ma-MDh" firstAttribute="leading" secondItem="gRH-lZ-ByZ" secondAttribute="leading" id="ivh-Hv-od1"/>
+                            <constraint firstItem="gRH-lZ-ByZ" firstAttribute="bottom" secondItem="Dhg-ma-MDh" secondAttribute="bottom" id="lVa-nR-hRg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gRH-lZ-ByZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="infoWeb" destination="Dhg-ma-MDh" id="URC-W7-6IF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="amg-XJ-Sni" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1013" y="129"/>
+        </scene>
     </scenes>
     <resources>
         <image name="buttonbg" width="154" height="50"/>
+        <image name="close" width="50" height="50"/>
         <image name="infoButton" width="50" height="50"/>
         <image name="resetButton" width="50" height="50"/>
     </resources>
