@@ -11,6 +11,12 @@
  * so that user can easily see the text and slider even if the selected color is same 
  */
 
+/**
+ ********|||||||||   Found a weird bug   |||||||||*******
+ * After opening the app for the first time when I go back to home and open the app
+ * again from background then the color of slider's setMinimumTrackImage become
+ * yellow instead of gradient. I have no idea why this is happening.
+ */
 
 
 import UIKit
