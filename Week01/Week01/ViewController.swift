@@ -159,25 +159,25 @@ class ViewController: UIViewController {
         firstLabel.text = "Red"
         firstSlider.maximumValue = 255
         firstSlider.minimumValue = 0
-        firstSliderValue = 255
+        firstSliderValue = 0
         firstSlider.value = Float(firstSliderValue)
         firstValueTxt.text = String(format: "%03d", firstSliderValue)
         
         secondLabel.text = "Green"
         secondSlider.maximumValue = 255
         secondSlider.minimumValue = 0
-        secondSliderValue = 255
+        secondSliderValue = 0
         secondSlider.value = Float(secondSliderValue)
         secondValueTxt.text = String(format: "%03d", secondSliderValue)
         
         thirdLabel.text = "Blue"
         thirdSlider.maximumValue = 255
         thirdSlider.minimumValue = 0
-        thirdSliderValue = 255
+        thirdSliderValue = 0
         thirdSlider.value = Float(thirdSliderValue)
         thirdValueTxt.text = String(format: "%03d", thirdSliderValue)
         
-        setColor(colorName: " My Awesome Color ")
+        setColor(colorName: " Fun Color ", isReset: true)
     }
     
     private func setUpHSB(){
@@ -191,7 +191,7 @@ class ViewController: UIViewController {
         firstLabel.text = "Hue"
         firstSlider.maximumValue = 360
         firstSlider.minimumValue = 0
-        firstSliderValue = 360
+        firstSliderValue = 0
         firstSlider.value = Float(firstSliderValue)
         firstValueTxt.text = String(format: "%03d", firstSliderValue)
         
@@ -205,13 +205,14 @@ class ViewController: UIViewController {
         thirdLabel.text = "Brightness"
         thirdSlider.maximumValue = 100
         thirdSlider.minimumValue = 0
-        thirdSliderValue = 100
+        thirdSliderValue = 0
         thirdSlider.value = Float(thirdSliderValue)
         thirdValueTxt.text = String(format: "%03d", thirdSliderValue)
         
-        setColor(colorName: " My Awesome Color ")
+        setColor(colorName: " Fun Color ", isReset: true)
     }
     
+    //Most of this function is copied from stackoverflow
     private func setSlider(slider:UISlider, cgColors: [CGColor], thumbNormal: UIImage, thumbHighlite: UIImage) {
         let tgl = CAGradientLayer()
         tgl.frame = CGRect.init(x:0, y:0, width:slider.frame.size.width, height:10)
@@ -237,11 +238,11 @@ class ViewController: UIViewController {
         }
     }
     
-    private func setColor(colorName: String){
+    private func setColor(colorName: String, isReset: Bool = false){
         
         titleLabel.text = colorName
         
-        let color: UIColor
+        var color: UIColor
         
         if isRGBActivated {
             color = UIColor(
@@ -256,6 +257,10 @@ class ViewController: UIViewController {
                 saturation: CGFloat(secondSliderValue)/CGFloat(100),
                 brightness: CGFloat(thirdSliderValue)/CGFloat(100),
                 alpha: 1)
+        }
+        
+        if isReset {
+            color = UIColor.white
         }
         
         UIView.animate(withDuration: 0.30) {
