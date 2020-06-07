@@ -74,7 +74,6 @@ class RGBullsEyeViewController: UIViewController {
     }
     
     func updateView() {
-        
         redSlider.value = Float(game.currentValue.r)
         greenSlider.value = Float(game.currentValue.g)
         blueSlider.value = Float(game.currentValue.b)
@@ -87,9 +86,12 @@ class RGBullsEyeViewController: UIViewController {
         greenLabel.text = "G \(game.currentValue.g)"
         blueLabel.text = "B \(game.currentValue.b)"
         
-        
         roundLabel.text = "Round \(game.round)"
         scoreLabel.text = "Score \(game.totalScore)"
+        
+        blueSlider.minimumTrackTintColor =
+            UIColor.blue.withAlphaComponent(CGFloat(game.difference)/100.0)
+
     }
     
     override func viewDidLoad() {
