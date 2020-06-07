@@ -16,6 +16,8 @@
 		892F7A93248C556D00BF1B20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892F7A91248C556D00BF1B20 /* LaunchScreen.storyboard */; };
 		892F7A9D248C65B800BF1B20 /* RevBullsEyeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F7A9C248C65B800BF1B20 /* RevBullsEyeViewController.swift */; };
 		892F7A9F248C663A00BF1B20 /* BullsEyeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F7A9E248C663A00BF1B20 /* BullsEyeGame.swift */; };
+		892F7AA1248C7B4300BF1B20 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F7AA0248C7B4300BF1B20 /* RGB.swift */; };
+		892F7AA3248C895700BF1B20 /* RGBullsEyeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F7AA2248C895700BF1B20 /* RGBullsEyeGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		892F7A94248C556D00BF1B20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		892F7A9C248C65B800BF1B20 /* RevBullsEyeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevBullsEyeViewController.swift; sourceTree = "<group>"; };
 		892F7A9E248C663A00BF1B20 /* BullsEyeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeGame.swift; sourceTree = "<group>"; };
+		892F7AA0248C7B4300BF1B20 /* RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
+		892F7AA2248C895700BF1B20 /* RGBullsEyeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBullsEyeGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				892F7A9E248C663A00BF1B20 /* BullsEyeGame.swift */,
+				892F7AA0248C7B4300BF1B20 /* RGB.swift */,
+				892F7AA2248C895700BF1B20 /* RGBullsEyeGame.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -167,8 +173,10 @@
 				892F7A9D248C65B800BF1B20 /* RevBullsEyeViewController.swift in Sources */,
 				892F7A9F248C663A00BF1B20 /* BullsEyeGame.swift in Sources */,
 				892F7A89248C556900BF1B20 /* BullsEyeViewController.swift in Sources */,
+				892F7AA1248C7B4300BF1B20 /* RGB.swift in Sources */,
 				892F7A85248C556900BF1B20 /* AppDelegate.swift in Sources */,
 				892F7A87248C556900BF1B20 /* SceneDelegate.swift in Sources */,
+				892F7AA3248C895700BF1B20 /* RGBullsEyeGame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
