@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+class BullsEyeViewController: UIViewController {
 
     var currentValue = 0
     var targetValue = 0

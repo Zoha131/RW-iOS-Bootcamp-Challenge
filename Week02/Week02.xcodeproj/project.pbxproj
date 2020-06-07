@@ -9,23 +9,27 @@
 /* Begin PBXBuildFile section */
 		892F7A85248C556900BF1B20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F7A84248C556900BF1B20 /* AppDelegate.swift */; };
 		892F7A87248C556900BF1B20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F7A86248C556900BF1B20 /* SceneDelegate.swift */; };
-		892F7A89248C556900BF1B20 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F7A88248C556900BF1B20 /* FirstViewController.swift */; };
-		892F7A8B248C556900BF1B20 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F7A8A248C556900BF1B20 /* SecondViewController.swift */; };
+		892F7A89248C556900BF1B20 /* BullsEyeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F7A88248C556900BF1B20 /* BullsEyeViewController.swift */; };
+		892F7A8B248C556900BF1B20 /* RGBullsEyeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F7A8A248C556900BF1B20 /* RGBullsEyeViewController.swift */; };
 		892F7A8E248C556900BF1B20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892F7A8C248C556900BF1B20 /* Main.storyboard */; };
 		892F7A90248C556D00BF1B20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 892F7A8F248C556D00BF1B20 /* Assets.xcassets */; };
 		892F7A93248C556D00BF1B20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 892F7A91248C556D00BF1B20 /* LaunchScreen.storyboard */; };
+		892F7A9D248C65B800BF1B20 /* RevBullsEyeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F7A9C248C65B800BF1B20 /* RevBullsEyeViewController.swift */; };
+		892F7A9F248C663A00BF1B20 /* BullsEyeGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892F7A9E248C663A00BF1B20 /* BullsEyeGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		892F7A81248C556900BF1B20 /* MVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		892F7A84248C556900BF1B20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		892F7A86248C556900BF1B20 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		892F7A88248C556900BF1B20 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		892F7A8A248C556900BF1B20 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		892F7A88248C556900BF1B20 /* BullsEyeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeViewController.swift; sourceTree = "<group>"; };
+		892F7A8A248C556900BF1B20 /* RGBullsEyeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBullsEyeViewController.swift; sourceTree = "<group>"; };
 		892F7A8D248C556900BF1B20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		892F7A8F248C556D00BF1B20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		892F7A92248C556D00BF1B20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		892F7A94248C556D00BF1B20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		892F7A9C248C65B800BF1B20 /* RevBullsEyeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevBullsEyeViewController.swift; sourceTree = "<group>"; };
+		892F7A9E248C663A00BF1B20 /* BullsEyeGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BullsEyeGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +62,34 @@
 		892F7A83248C556900BF1B20 /* Week02 */ = {
 			isa = PBXGroup;
 			children = (
+				892F7A9B248C648E00BF1B20 /* model */,
+				892F7A9A248C647300BF1B20 /* controller */,
 				892F7A84248C556900BF1B20 /* AppDelegate.swift */,
 				892F7A86248C556900BF1B20 /* SceneDelegate.swift */,
-				892F7A88248C556900BF1B20 /* FirstViewController.swift */,
-				892F7A8A248C556900BF1B20 /* SecondViewController.swift */,
 				892F7A8C248C556900BF1B20 /* Main.storyboard */,
 				892F7A8F248C556D00BF1B20 /* Assets.xcassets */,
 				892F7A91248C556D00BF1B20 /* LaunchScreen.storyboard */,
 				892F7A94248C556D00BF1B20 /* Info.plist */,
 			);
 			path = Week02;
+			sourceTree = "<group>";
+		};
+		892F7A9A248C647300BF1B20 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				892F7A88248C556900BF1B20 /* BullsEyeViewController.swift */,
+				892F7A8A248C556900BF1B20 /* RGBullsEyeViewController.swift */,
+				892F7A9C248C65B800BF1B20 /* RevBullsEyeViewController.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		892F7A9B248C648E00BF1B20 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				892F7A9E248C663A00BF1B20 /* BullsEyeGame.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,8 +163,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				892F7A8B248C556900BF1B20 /* SecondViewController.swift in Sources */,
-				892F7A89248C556900BF1B20 /* FirstViewController.swift in Sources */,
+				892F7A8B248C556900BF1B20 /* RGBullsEyeViewController.swift in Sources */,
+				892F7A9D248C65B800BF1B20 /* RevBullsEyeViewController.swift in Sources */,
+				892F7A9F248C663A00BF1B20 /* BullsEyeGame.swift in Sources */,
+				892F7A89248C556900BF1B20 /* BullsEyeViewController.swift in Sources */,
 				892F7A85248C556900BF1B20 /* AppDelegate.swift in Sources */,
 				892F7A87248C556900BF1B20 /* SceneDelegate.swift in Sources */,
 			);
