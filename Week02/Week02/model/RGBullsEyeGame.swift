@@ -24,7 +24,7 @@ class RGBullsEyeGame {
     private let minTargetValue: Int
     private let maxTargetValue: Int
     
-    var difference: Int {abs(targetValue - currentValue)}
+    var difference: Int {abs(targetValue - currentValue)} // I have overloaded the - operator for RGB struct
     
     init(minTargetValue: Int, maxTargetValue: Int) {
         self.minTargetValue = minTargetValue
@@ -41,7 +41,7 @@ class RGBullsEyeGame {
     
     func nextRound() {
         _round += 1
-        _targetValue = RGB.random()
+        _targetValue = RGB.random() // I have created an extension function to get random RGB
         currentValue = RGB()
     }
     
