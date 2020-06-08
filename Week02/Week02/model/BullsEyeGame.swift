@@ -12,8 +12,8 @@ import Foundation
 /*
  * Ideation for the BullsEyeGame Model
  *
- * Properties: guess value, actual value, round number, total score, minimum slider value, maximum slider value
- * Calculated Properties: difference between gues and actual value
+ * Properties: current value, target value, round number, total score, minimum slider value, maximum slider value
+ * Calculated Properties: difference between current and target value
  *
  * Actions: Calcualting point based on difference,
  *          Calculating bonus based on difference,
@@ -25,7 +25,7 @@ import Foundation
 /*
  * Reson Behind Making BullsEyeGame a Class
  *
- * In BullsEyeGame I have multiple mutable properties which will be changed multiple times througt the game
+ * 
  *
  **/
 

@@ -10,7 +10,7 @@ import UIKit
 
 class RevBullsEyeViewController: UIViewController {
     
-    var bullsEyeGame = BullsEyeGame(minTargetValue: 1, maxTargetValue: 100)
+    let bullsEyeGame = BullsEyeGame(minTargetValue: 1, maxTargetValue: 100)
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var guessTxt: UITextField!
@@ -58,18 +58,24 @@ class RevBullsEyeViewController: UIViewController {
         present(alert, animated: true, completion: nil)
         
     }
-
+    
     
     @IBAction func onTextChange(_ sender: Any) {
-        if  let text = self.guessTxt.text,
-            let roundedValue = Int(text),
-            roundedValue <= 100 && roundedValue >= 1
+        if  let text = self.guessTxt.text,          // Unwrapped the optional string here
+            let roundedValue = Int(text),           // checked if the string is valid integer
+            roundedValue <= 100 && roundedValue >= 1// checked if the value is inside of the slider value
         {
             bullsEyeGame.currentValue = roundedValue
             hitButton.isEnabled = true
             
+            // giving hint to the user
+            slider.minimumTrackTintColor = UIColor
+                .blue
+                .withAlphaComponent(CGFloat(bullsEyeGame.difference)/100.0)
+            
         } else{
             hitButton.isEnabled = false
+            slider.minimumTrackTintColor = UIColor.blue.withAlphaComponent(1.0)
         }
         
     }
@@ -80,7 +86,10 @@ class RevBullsEyeViewController: UIViewController {
         scoreLabel.text = String(bullsEyeGame.totalScore)
         roundLabel.text = String(bullsEyeGame.round)
         
-
+        //called this method here to sync the minimumTrackTintColor's
+        //alpha value with the current value of the TextField
+        onTextChange("code")
+        
         print(bullsEyeGame.targetValue)
     }
     

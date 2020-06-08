@@ -10,7 +10,7 @@ import UIKit
 
 class BullsEyeViewController: UIViewController {
     
-    var bullsEyeGame = BullsEyeGame(minTargetValue: 1, maxTargetValue: 100)
+    let bullsEyeGame = BullsEyeGame(minTargetValue: 1, maxTargetValue: 100)
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var targetLabel: UILabel!
@@ -57,6 +57,7 @@ class BullsEyeViewController: UIViewController {
     @IBAction func sliderMoved(_ slider: UISlider) {
         let roundedValue = slider.value.rounded()
         bullsEyeGame.currentValue = Int(roundedValue)
+        
         print(bullsEyeGame.currentValue)
     }
     
