@@ -58,6 +58,8 @@ class BullsEyeViewController: UIViewController {
         let roundedValue = slider.value.rounded()
         bullsEyeGame.currentValue = Int(roundedValue)
         
+        updateViews()
+        
         print(bullsEyeGame.currentValue)
     }
     
@@ -66,6 +68,10 @@ class BullsEyeViewController: UIViewController {
         targetLabel.text = String(bullsEyeGame.targetValue)
         scoreLabel.text = String(bullsEyeGame.totalScore)
         roundLabel.text = String(bullsEyeGame.round)
+        
+        slider.minimumTrackTintColor = UIColor
+            .blue
+            .withAlphaComponent(CGFloat(bullsEyeGame.difference)/100.0)
     }
     
     @IBAction func startNewGame() {

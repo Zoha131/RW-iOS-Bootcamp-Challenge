@@ -26,6 +26,9 @@ class RevBullsEyeViewController: UIViewController {
     }
     
     
+    @IBAction func onTapped(_ sender: Any) {
+        guessTxt.endEditing(true)
+    }
     
     @IBAction func showAlert() {
         
@@ -68,27 +71,30 @@ class RevBullsEyeViewController: UIViewController {
             bullsEyeGame.currentValue = roundedValue
             hitButton.isEnabled = true
             
-            // giving hint to the user
-            slider.minimumTrackTintColor = UIColor
-                .blue
-                .withAlphaComponent(CGFloat(bullsEyeGame.difference)/100.0)
-            
         } else{
             hitButton.isEnabled = false
             slider.minimumTrackTintColor = UIColor.blue.withAlphaComponent(1.0)
         }
         
+        updateViews(calledFromTxtListener: true)
+        
     }
     
-    func updateViews() {
+    func updateViews(calledFromTxtListener: Bool = false) {
+        
+        if !calledFromTxtListener {
+            // If i don't check this then the TextField does not work properly
+            guessTxt.text = String(bullsEyeGame.currentValue)
+        }
+        
         slider.value = Float(bullsEyeGame.targetValue)
-        guessTxt.text = String(bullsEyeGame.currentValue)
         scoreLabel.text = String(bullsEyeGame.totalScore)
         roundLabel.text = String(bullsEyeGame.round)
         
-        //called this method here to sync the minimumTrackTintColor's
-        //alpha value with the current value of the TextField
-        onTextChange("code")
+        // giving hint to the user
+        slider.minimumTrackTintColor = UIColor
+            .blue
+            .withAlphaComponent(CGFloat(bullsEyeGame.difference)/100.0)
         
         print(bullsEyeGame.targetValue)
     }

@@ -89,8 +89,9 @@ class RGBullsEyeViewController: UIViewController {
         roundLabel.text = "Round \(game.round)"
         scoreLabel.text = "Score \(game.totalScore)"
         
-        blueSlider.minimumTrackTintColor =
-            UIColor.blue.withAlphaComponent(CGFloat(game.difference)/100.0)
+        blueSlider.minimumTrackTintColor = UIColor
+            .blue
+            .withAlphaComponent(CGFloat(game.difference)/100.0)
 
     }
     

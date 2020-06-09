@@ -48,6 +48,11 @@ class BullsEyeGame {
     
     var currentValue: Int = 0
     
+    /*
+     * Here, I have encapsulated the mutable variables from the outer world.
+     * And only exposed the immutable variables. So that, any dev using this
+     * API won't be able to mutate the property accidentally. 
+     */
     private var _targetValue: Int = 0
     var targetValue: Int {_targetValue}
     

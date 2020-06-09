@@ -261,6 +261,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="tbZ-HR-pxw" firstAttribute="top" secondItem="wlF-Nn-rtR" secondAttribute="top" constant="20" id="3K7-eQ-vdr"/>
                             <constraint firstItem="wlF-Nn-rtR" firstAttribute="trailing" secondItem="Y4H-ek-8Xt" secondAttribute="trailing" constant="100" id="3hv-iD-Ezq"/>
@@ -273,6 +274,9 @@
                             <constraint firstItem="TfO-yX-gjD" firstAttribute="centerX" secondItem="dm7-dF-wV8" secondAttribute="centerX" id="z7h-7d-fTI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wlF-Nn-rtR"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="pyb-VY-pre" appends="YES" id="ezS-Ul-tsJ"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="RevBullsEye" image="revbullseye" id="bEB-nc-U7j"/>
                     <connections>
@@ -284,6 +288,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fn2-m5-gSj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="pyb-VY-pre">
+                    <connections>
+                        <action selector="onTapped:" destination="7X1-iL-qst" id="pge-bx-fs0"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="750" y="1059"/>
         </scene>
