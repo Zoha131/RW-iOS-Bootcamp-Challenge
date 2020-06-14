@@ -12,6 +12,7 @@
 		185CB1FE23C78CE6009F7571 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185CB1FD23C78CE6009F7571 /* SceneDelegate.swift */; };
 		185CB20323C78CE6009F7571 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 185CB20123C78CE6009F7571 /* Main.storyboard */; };
 		185CB20523C78CE8009F7571 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 185CB20423C78CE8009F7571 /* Assets.xcassets */; };
+		89F1696A2495B8A50077EE0E /* ThemedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F169692495B8A50077EE0E /* ThemedView.swift */; };
 		A1F9E049249267DB00323226 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F9E048249267DB00323226 /* HomeViewController.swift */; };
 		A1F9E04B2492688C00323226 /* DataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F9E04A2492688C00323226 /* DataGenerator.swift */; };
 		A1F9E04D249268A300323226 /* Data.json in Resources */ = {isa = PBXBuildFile; fileRef = A1F9E04C249268A300323226 /* Data.json */; };
@@ -28,6 +29,7 @@
 		185CB20223C78CE6009F7571 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		185CB20423C78CE8009F7571 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		185CB20923C78CE8009F7571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89F169692495B8A50077EE0E /* ThemedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemedView.swift; sourceTree = "<group>"; };
 		A1F9E048249267DB00323226 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A1F9E04A2492688C00323226 /* DataGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataGenerator.swift; sourceTree = "<group>"; };
 		A1F9E04C249268A300323226 /* Data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Data.json; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 		185CB1FA23C78CE6009F7571 /* Cryptly-starter */ = {
 			isa = PBXGroup;
 			children = (
+				89F169682495B80A0077EE0E /* view */,
 				A1F9E0552492697800323226 /* ThemeManager */,
 				A1F9E0542492696200323226 /* Data */,
 				185CB1FB23C78CE6009F7571 /* AppDelegate.swift */,
@@ -81,6 +84,14 @@
 				185CB20923C78CE8009F7571 /* Info.plist */,
 			);
 			path = "Cryptly-starter";
+			sourceTree = "<group>";
+		};
+		89F169682495B80A0077EE0E /* view */ = {
+			isa = PBXGroup;
+			children = (
+				89F169692495B8A50077EE0E /* ThemedView.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		A1F9E0542492696200323226 /* Data */ = {
@@ -198,6 +209,7 @@
 				185CB1FE23C78CE6009F7571 /* SceneDelegate.swift in Sources */,
 				A1F9E049249267DB00323226 /* HomeViewController.swift in Sources */,
 				A1F9E04B2492688C00323226 /* DataGenerator.swift in Sources */,
+				89F1696A2495B8A50077EE0E /* ThemedView.swift in Sources */,
 				A1F9E0512492690000323226 /* ThemeManager.swift in Sources */,
 				A1F9E0532492690B00323226 /* Theme.swift in Sources */,
 			);

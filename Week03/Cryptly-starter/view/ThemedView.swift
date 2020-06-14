@@ -32,47 +32,28 @@
 
 import UIKit
 
-protocol Theme {
-  
-  var backgroundColor: UIColor {get}
-  var textColor: UIColor {get}
-  var borderColor: UIColor {get}
-  var widgetBackgroundColor: UIColor {get}
-  
-}
+class ThemedView: UIView {
 
-protocol Themeable {
-  func registerForTheme()
-  func unregisterForTheme()
-  func themeChanged()
-}
-
-struct LightTheme: Theme {
+    /*
+    // Only override draw() if you perform custom drawing.
+    // An empty implementation adversely affects performance during animation.
+    override func draw(_ rect: CGRect) {
+        // Drawing code
+    }
+    */
   
-  private init() {}
-
-  static let shared = LightTheme()
+  required init?(coder: NSCoder) {
+    
+    super.init(coder: coder)
+    
+    self.backgroundColor = .systemGray6
+    self.layer.borderColor = UIColor.lightGray.cgColor
+    self.layer.borderWidth = 1.0
+    self.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
+    self.layer.shadowOffset = CGSize(width: 0, height: 2)
+    self.layer.shadowRadius = 4
+    self.layer.shadowOpacity = 0.8
+    
+  }
   
-  var backgroundColor: UIColor = .white
-  
-  var textColor: UIColor = .black
-  
-  var borderColor: UIColor = .lightGray
-  
-  var widgetBackgroundColor: UIColor = .systemGray6
-}
-
-struct DarkTheme: Theme {
-  
-  private init() {}
-
-  static let shared = DarkTheme()
-  
-  var backgroundColor: UIColor = .black
-  
-  var textColor: UIColor = .white
-  
-  var borderColor: UIColor = .white
-  
-  var widgetBackgroundColor: UIColor = .darkGray
 }
