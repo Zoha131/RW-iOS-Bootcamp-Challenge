@@ -33,7 +33,7 @@
 import UIKit
 
 class HomeViewController: UIViewController{
-
+  
   @IBOutlet weak var view1: UIView!
   @IBOutlet weak var view2: UIView!
   @IBOutlet weak var view3: UIView!
@@ -42,7 +42,9 @@ class HomeViewController: UIViewController{
   @IBOutlet weak var view2TextLabel: UILabel!
   @IBOutlet weak var view3TextLabel: UILabel!
   @IBOutlet weak var themeSwitch: UISwitch!
-    
+  
+  let cryptoData = DataGenerator.shared.generateData()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupViews()
@@ -50,18 +52,22 @@ class HomeViewController: UIViewController{
     setView1Data()
     setView2Data()
     setView3Data()
+    
+    //print(cryptoData!)
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    registerForTheme()
   }
   
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
+    unregisterForTheme()
   }
-
+  
   func setupViews() {
-      
+    
     view1.backgroundColor = .systemGray6
     view1.layer.borderColor = UIColor.lightGray.cgColor
     view1.layer.borderWidth = 1.0
@@ -94,14 +100,93 @@ class HomeViewController: UIViewController{
   }
   
   func setView1Data() {
+    
+    if let data = cryptoData {
+      
+      let myCurrency: String = data.map{cryptoCurrency in cryptoCurrency.name}.joined(separator: ", ")
+      
+      view1TextLabel.text = myCurrency
+      
+      print(myCurrency)
+      
+      
+    }
+    
   }
   
   func setView2Data() {
+    
+    if let data = cryptoData {
+      
+      let encreased: String = data
+        .filter{cryptoCurrency in cryptoCurrency.currentValue > cryptoCurrency.previousValue }
+        .map{cryptoCurrency in cryptoCurrency.name}
+        .joined(separator: ", ")
+      
+      view2TextLabel.text = encreased
+      
+      print(encreased)
+    }
+    
   }
   
   func setView3Data() {
+    
+    if let data = cryptoData {
+      
+      let decreased: String = data
+        .filter{cryptoCurrency in cryptoCurrency.currentValue < cryptoCurrency.previousValue }
+        .map{cryptoCurrency in cryptoCurrency.name}
+        .joined(separator: ", ")
+      
+      view3TextLabel.text = decreased
+      
+      print(decreased)
+    }
+    
   }
   
   @IBAction func switchPressed(_ sender: Any) {
+    
+    if themeSwitch.isOn {
+      ThemeManager.shared.set(theme: DarkTheme.shared)
+    } else{
+      ThemeManager.shared.set(theme: LightTheme.shared)
+    }
+    
   }
+}
+
+extension HomeViewController: Themeable {
+  func registerForTheme() {
+    NotificationCenter.default.addObserver(self, selector: #selector(themeChanged), name: Notification.Name.init("themeChanged"), object: nil)
+  }
+  
+  func unregisterForTheme() {
+    NotificationCenter.default.removeObserver(self)
+  }
+  
+  @objc func themeChanged() {
+    if let currentTheme = ThemeManager.shared.currentTheme {
+      
+      view1.backgroundColor = currentTheme.widgetBackgroundColor
+      view2.backgroundColor = currentTheme.widgetBackgroundColor
+      view3.backgroundColor = currentTheme.widgetBackgroundColor
+      
+      view1.layer.borderColor = currentTheme.borderColor.cgColor
+      view2.layer.borderColor = currentTheme.borderColor.cgColor
+      view3.layer.borderColor = currentTheme.borderColor.cgColor
+      
+      view1TextLabel.textColor = currentTheme.textColor
+      view2TextLabel.textColor = currentTheme.textColor
+      view3TextLabel.textColor = currentTheme.textColor
+      
+      headingLabel.textColor = currentTheme.textColor
+      
+      view.backgroundColor = currentTheme.backgroundColor
+      
+    }
+  }
+  
+  
 }

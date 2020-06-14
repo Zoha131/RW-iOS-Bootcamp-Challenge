@@ -30,8 +30,49 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
+import UIKit
 
 protocol Theme {
   
+  var backgroundColor: UIColor {get}
+  var textColor: UIColor {get}
+  var borderColor: UIColor {get}
+  var widgetBackgroundColor: UIColor {get}
+  
+}
+
+protocol Themeable {
+  func registerForTheme()
+  func unregisterForTheme()
+  func themeChanged()
+}
+
+struct LightTheme: Theme {
+  
+  private init() {}
+
+  static let shared = LightTheme()
+  
+  var backgroundColor: UIColor = .white
+  
+  var textColor: UIColor = .black
+  
+  var borderColor: UIColor = .black
+  
+  var widgetBackgroundColor: UIColor = .lightGray
+}
+
+struct DarkTheme: Theme {
+  
+  private init() {}
+
+  static let shared = DarkTheme()
+  
+  var backgroundColor: UIColor = .black
+  
+  var textColor: UIColor = .white
+  
+  var borderColor: UIColor = .white
+  
+  var widgetBackgroundColor: UIColor = .darkGray
 }
