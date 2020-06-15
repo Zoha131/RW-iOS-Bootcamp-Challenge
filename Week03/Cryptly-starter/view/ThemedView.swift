@@ -33,21 +33,38 @@
 import UIKit
 
 class ThemedView: UIView, Roundable {
-  var cornerRadius: CGFloat
   
-  required init?(coder: NSCoder) {
-    self.cornerRadius = 10
-    super.init(coder: coder)
+  var cornerRadius: CGFloat = 10 {
+    didSet {
+      round()
+    }
+  }
+  
+  override func awakeFromNib() {
+    updateTheme()
+  
+    round()
+  }
+  
+  func updateTheme() {
     
-    self.backgroundColor = .systemGray6
-    self.layer.borderColor = UIColor.lightGray.cgColor
+    let currentTheme: Theme = ThemeManager.shared.currentTheme ?? LightTheme.shared as Theme
+    
+    self.backgroundColor = currentTheme.widgetBackgroundColor
+    self.layer.borderColor = currentTheme.borderColor.cgColor
     self.layer.borderWidth = 1.0
-    self.layer.shadowColor = UIColor.black.withAlphaComponent(0.2).cgColor
+    self.layer.shadowColor = currentTheme.borderColor.withAlphaComponent(0.7).cgColor
     self.layer.shadowOffset = CGSize(width: 0, height: 2)
     self.layer.shadowRadius = 4
     self.layer.shadowOpacity = 0.8
     
-    round()
+    let uiLabelArray = subviews.compactMap{uiView in uiView as? UILabel}
+    
+    uiLabelArray.forEach{ uiLabel in
+      
+      uiLabel.textColor = currentTheme.textColor
+      
+    }
   }
   
 }
@@ -64,6 +81,7 @@ extension Roundable {
   
   func round() {
     layer.cornerRadius = cornerRadius
+    //clipsToBounds = true
   }
   
 }

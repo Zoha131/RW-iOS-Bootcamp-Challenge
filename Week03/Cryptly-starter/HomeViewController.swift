@@ -34,9 +34,9 @@ import UIKit
 
 class HomeViewController: UIViewController{
   
-  @IBOutlet weak var view1: UIView!
-  @IBOutlet weak var view2: UIView!
-  @IBOutlet weak var view3: UIView!
+  @IBOutlet weak var view1: ThemedView!
+  @IBOutlet weak var view2: ThemedView!
+  @IBOutlet weak var view3: ThemedView!
   @IBOutlet weak var headingLabel: UILabel!
   @IBOutlet weak var view1TextLabel: UILabel!
   @IBOutlet weak var view2TextLabel: UILabel!
@@ -175,32 +175,23 @@ extension HomeViewController: Themeable {
   @objc func themeChanged() {
     if let currentTheme = ThemeManager.shared.currentTheme {
       
-      view1.backgroundColor = currentTheme.widgetBackgroundColor
-      view2.backgroundColor = currentTheme.widgetBackgroundColor
-      view3.backgroundColor = currentTheme.widgetBackgroundColor
-      
-      risingView.backgroundColor = currentTheme.widgetBackgroundColor
-      fallingView.backgroundColor = currentTheme.widgetBackgroundColor
-      
-      view1.layer.borderColor = currentTheme.borderColor.cgColor
-      view2.layer.borderColor = currentTheme.borderColor.cgColor
-      view3.layer.borderColor = currentTheme.borderColor.cgColor
-      risingView.layer.borderColor = currentTheme.borderColor.cgColor
-      fallingView.layer.borderColor = currentTheme.borderColor.cgColor
-      
-      view1TextLabel.textColor = currentTheme.textColor
-      view2TextLabel.textColor = currentTheme.textColor
-      view3TextLabel.textColor = currentTheme.textColor
-      
-      risingTxt.textColor = currentTheme.textColor
-      risingTitle.textColor = currentTheme.textColor
-      
-      fallingTxt.textColor = currentTheme.textColor
-      fallingTitle.textColor = currentTheme.textColor
-      
       headingLabel.textColor = currentTheme.textColor
       
       view.backgroundColor = currentTheme.backgroundColor
+      
+      view1.updateTheme()
+      view2.updateTheme()
+      view3.updateTheme()
+      risingView.updateTheme()
+      fallingView.updateTheme()
+      
+//      Experimented with different radius
+//
+//      view1.cornerRadius += 4
+//      view2.cornerRadius += 5
+//      view3.cornerRadius += 8
+//      risingView.cornerRadius += 3
+//      fallingView.cornerRadius += 6
       
     }
   }
