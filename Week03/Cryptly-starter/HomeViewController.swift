@@ -42,6 +42,12 @@ class HomeViewController: UIViewController{
   @IBOutlet weak var view2TextLabel: UILabel!
   @IBOutlet weak var view3TextLabel: UILabel!
   @IBOutlet weak var themeSwitch: UISwitch!
+  @IBOutlet weak var fallingView: ThemedView!
+  @IBOutlet weak var fallingTxt: UILabel!
+  @IBOutlet weak var fallingTitle: UILabel!
+  @IBOutlet weak var risingView: ThemedView!
+  @IBOutlet weak var risingTxt: UILabel!
+  @IBOutlet weak var risingTitle: UILabel!
   
   let cryptoData = DataGenerator.shared.generateData()
   
@@ -52,6 +58,7 @@ class HomeViewController: UIViewController{
     setView1Data()
     setView2Data()
     setView3Data()
+    setTrending()
     
     //print(cryptoData!)
   }
@@ -76,9 +83,9 @@ class HomeViewController: UIViewController{
     
     if let data = cryptoData {
       
-      let myCurrency: String = data.map{cryptoCurrency in cryptoCurrency.name}.joined(separator: ", ")
-      
-      view1TextLabel.text = myCurrency
+      //let myCurrency: String = data.map{cryptoCurrency in cryptoCurrency.name}.joined(separator: ", ")
+      let myCurrency = data.reduce(""){initial, partial in initial + partial.name + ", "}.dropLast(2)
+      view1TextLabel.text = String(myCurrency)
       
       print(myCurrency)
       
@@ -91,12 +98,14 @@ class HomeViewController: UIViewController{
     
     if let data = cryptoData {
       
-      let encreased: String = data
+      let encreased = data
         .filter{cryptoCurrency in cryptoCurrency.currentValue > cryptoCurrency.previousValue }
-        .map{cryptoCurrency in cryptoCurrency.name}
-        .joined(separator: ", ")
+        //.map{cryptoCurrency in cryptoCurrency.name}
+        //.joined(separator: ", ")
+        .reduce(""){initial, partial in initial + partial.name + ", "}.dropLast(2)
       
-      view2TextLabel.text = encreased
+      
+      view2TextLabel.text = String(encreased)
       
       print(encreased)
     }
@@ -107,14 +116,38 @@ class HomeViewController: UIViewController{
     
     if let data = cryptoData {
       
-      let decreased: String = data
+      let decreased = data
         .filter{cryptoCurrency in cryptoCurrency.currentValue < cryptoCurrency.previousValue }
-        .map{cryptoCurrency in cryptoCurrency.name}
-        .joined(separator: ", ")
+        //.map{cryptoCurrency in cryptoCurrency.name}
+        //.joined(separator: ", ")
+        .reduce(""){initial, partial in initial + partial.name + ", "}.dropLast(2)
       
-      view3TextLabel.text = decreased
+      view3TextLabel.text = String(decreased)
       
       print(decreased)
+    }
+    
+  }
+  
+  func setTrending() {
+    
+    if let data = cryptoData {
+      
+      let maxFalling: CryptoCurrency = data
+        .filter{currency in currency.trend == Trend.falling}
+        .min{first, second in first.percentageRise < second.percentageRise}!
+      
+      fallingTxt.text = String(format: "%.2f", maxFalling.percentageRise)
+      
+      let maxRising: CryptoCurrency = data
+        .filter{currency in currency.trend == Trend.rising}
+        .max{first, second in first.percentageRise < second.percentageRise}!
+      
+      risingTxt.text = String(format: "%.2f", maxRising.percentageRise)
+      
+      
+      print(maxFalling)
+      print(maxRising)
     }
     
   }
@@ -146,13 +179,24 @@ extension HomeViewController: Themeable {
       view2.backgroundColor = currentTheme.widgetBackgroundColor
       view3.backgroundColor = currentTheme.widgetBackgroundColor
       
+      risingView.backgroundColor = currentTheme.widgetBackgroundColor
+      fallingView.backgroundColor = currentTheme.widgetBackgroundColor
+      
       view1.layer.borderColor = currentTheme.borderColor.cgColor
       view2.layer.borderColor = currentTheme.borderColor.cgColor
       view3.layer.borderColor = currentTheme.borderColor.cgColor
+      risingView.layer.borderColor = currentTheme.borderColor.cgColor
+      fallingView.layer.borderColor = currentTheme.borderColor.cgColor
       
       view1TextLabel.textColor = currentTheme.textColor
       view2TextLabel.textColor = currentTheme.textColor
       view3TextLabel.textColor = currentTheme.textColor
+      
+      risingTxt.textColor = currentTheme.textColor
+      risingTitle.textColor = currentTheme.textColor
+      
+      fallingTxt.textColor = currentTheme.textColor
+      fallingTitle.textColor = currentTheme.textColor
       
       headingLabel.textColor = currentTheme.textColor
       

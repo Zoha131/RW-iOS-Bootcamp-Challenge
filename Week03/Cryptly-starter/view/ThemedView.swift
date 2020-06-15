@@ -32,18 +32,11 @@
 
 import UIKit
 
-class ThemedView: UIView {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+class ThemedView: UIView, Roundable {
+  var cornerRadius: CGFloat
   
   required init?(coder: NSCoder) {
-    
+    self.cornerRadius = 10
     super.init(coder: coder)
     
     self.backgroundColor = .systemGray6
@@ -54,6 +47,23 @@ class ThemedView: UIView {
     self.layer.shadowRadius = 4
     self.layer.shadowOpacity = 0.8
     
+    round()
+  }
+  
+}
+
+protocol Roundable where Self: UIView{
+  
+  var cornerRadius: CGFloat {get set}
+  
+  func round()
+  
+}
+
+extension Roundable {
+  
+  func round() {
+    layer.cornerRadius = cornerRadius
   }
   
 }
