@@ -32,18 +32,27 @@
 
 import UIKit
 
+@IBDesignable
 class ThemedView: UIView, Roundable {
   
-  var cornerRadius: CGFloat = 10 {
+  @IBInspectable var cornerRadius: CGFloat = 10 {
     didSet {
       round()
     }
   }
   
   override func awakeFromNib() {
+    super.awakeFromNib()
+    
     updateTheme()
-  
     round()
+  }
+  
+  override func prepareForInterfaceBuilder() {
+      super.prepareForInterfaceBuilder()
+    
+      updateTheme()
+      round()
   }
   
   func updateTheme() {
