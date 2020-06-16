@@ -114,9 +114,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		185CB1F723C78CE6009F7571 /* Cryptly-starter */ = {
+		185CB1F723C78CE6009F7571 /* Cryptly */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 185CB20C23C78CE8009F7571 /* Build configuration list for PBXNativeTarget "Cryptly-starter" */;
+			buildConfigurationList = 185CB20C23C78CE8009F7571 /* Build configuration list for PBXNativeTarget "Cryptly" */;
 			buildPhases = (
 				181FE31E248EA70400A180EA /* ShellScript */,
 				185CB1F423C78CE6009F7571 /* Sources */,
@@ -127,7 +127,7 @@
 			);
 			dependencies = (
 			);
-			name = "Cryptly-starter";
+			name = Cryptly;
 			productName = "Cryptly-starter";
 			productReference = 185CB1F823C78CE6009F7571 /* Cryptly.app */;
 			productType = "com.apple.product-type.application";
@@ -147,7 +147,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 185CB1F323C78CE6009F7571 /* Build configuration list for PBXProject "Cryptly-starter" */;
+			buildConfigurationList = 185CB1F323C78CE6009F7571 /* Build configuration list for PBXProject "Cryptly" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -160,7 +160,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				185CB1F723C78CE6009F7571 /* Cryptly-starter */,
+				185CB1F723C78CE6009F7571 /* Cryptly */,
 			);
 		};
 /* End PBXProject section */
@@ -382,7 +382,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		185CB1F323C78CE6009F7571 /* Build configuration list for PBXProject "Cryptly-starter" */ = {
+		185CB1F323C78CE6009F7571 /* Build configuration list for PBXProject "Cryptly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				185CB20A23C78CE8009F7571 /* Debug */,
@@ -391,7 +391,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		185CB20C23C78CE8009F7571 /* Build configuration list for PBXNativeTarget "Cryptly-starter" */ = {
+		185CB20C23C78CE8009F7571 /* Build configuration list for PBXNativeTarget "Cryptly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				185CB20D23C78CE8009F7571 /* Debug */,
