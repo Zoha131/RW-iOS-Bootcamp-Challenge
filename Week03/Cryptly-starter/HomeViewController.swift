@@ -53,14 +53,13 @@ class HomeViewController: UIViewController{
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    //setupViews()
+    
     setupLabels()
     setView1Data()
     setView2Data()
     setView3Data()
     setTrending()
     
-    //print(cryptoData!)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -89,9 +88,7 @@ class HomeViewController: UIViewController{
       
       print(myCurrency)
       
-      
     }
-    
   }
   
   func setView2Data() {
@@ -109,7 +106,6 @@ class HomeViewController: UIViewController{
       
       print(encreased)
     }
-    
   }
   
   func setView3Data() {
@@ -126,7 +122,6 @@ class HomeViewController: UIViewController{
       
       print(decreased)
     }
-    
   }
   
   func setTrending() {
@@ -135,21 +130,20 @@ class HomeViewController: UIViewController{
       
       let maxFalling: CryptoCurrency = data
         .filter{currency in currency.trend == Trend.falling}
-        .min{first, second in first.percentageRise < second.percentageRise}!
+        .min{first, second in first.valueRise < second.valueRise}!
       
-      fallingTxt.text = String(format: "%.2f", maxFalling.percentageRise)
+      fallingTxt.text = String(format: "%.1f", maxFalling.valueRise)
       
       let maxRising: CryptoCurrency = data
         .filter{currency in currency.trend == Trend.rising}
-        .max{first, second in first.percentageRise < second.percentageRise}!
+        .max{first, second in first.valueRise < second.valueRise}!
       
-      risingTxt.text = String(format: "%.2f", maxRising.percentageRise)
+      risingTxt.text = String(format: "%.1f", maxRising.valueRise)
       
       
       print(maxFalling)
       print(maxRising)
     }
-    
   }
   
   @IBAction func switchPressed(_ sender: Any) {
@@ -195,6 +189,4 @@ extension HomeViewController: Themeable {
       
     }
   }
-  
-  
 }
