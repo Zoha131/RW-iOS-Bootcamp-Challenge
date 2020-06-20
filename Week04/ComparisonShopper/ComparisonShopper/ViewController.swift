@@ -14,7 +14,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var titleLabelLeft: UILabel!
   @IBOutlet weak var imageViewLeft: UIImageView!
   @IBOutlet weak var priceLabelLeft: UILabel!
-  @IBOutlet weak var roomLabelLeft: UILabel!
+  @IBOutlet weak var roomLabelLeft: UILabel! // This outlet was broken
   
   // Right
   @IBOutlet weak var titleLabelRight: UILabel!
@@ -28,11 +28,10 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    house1 = House()
-    
+    house1 = House() // House was not initialized
     house1?.price = "$12,000"
     house1?.bedrooms = "3 bedrooms"
-    house1?.address = "McGaheysville, Virginia"
+    house1?.address = "McGaheysville" // Address was nill
     
     
     setUpLeftSideUI()
