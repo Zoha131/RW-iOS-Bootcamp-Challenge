@@ -9,45 +9,84 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var compatibilityItemLabel: UILabel!
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var questionLabel: UILabel!
-
-    var compatibilityItems = ["Cats", "Dogs"] // Add more!
-    var currentItemIndex = 0
-
-    var person1 = Person(id: 1, items: [:])
-    var person2 = Person(id: 2, items: [:])
-    var currentPerson: Person?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  
+  @IBOutlet weak var compatibilityItemLabel: UILabel!
+  @IBOutlet weak var slider: UISlider!
+  @IBOutlet weak var questionLabel: UILabel!
+  
+  let compatibilityChecker = CompatibilityChecker()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    startNewCompare()
+  }
+  
+  @IBAction func sliderValueChanged(_ sender: UISlider) {
+    print(sender.value)
+    
+    let roundedCurrent = slider.value.rounded()
+    slider.setValue(roundedCurrent, animated: true)
+    
+  }
+  
+  @IBAction func didPressNextItemButton(_ sender: Any) {
+    
+    let sliderValue = slider.value.rounded()
+    compatibilityChecker.addRating(rating: sliderValue)
+    
+    if compatibilityChecker.nextItem() {
+      updateViews()
+    } else if compatibilityChecker.isPerson1Current() {
+      compatibilityChecker.toggleCurrentPerson()
+      updateViews()
+    } else {
+      
+      let compareResult = compatibilityChecker.calculateCompatibility()
+      
+      let alert = UIAlertController(
+        title: "Alert Title",
+        message: compareResult,
+        preferredStyle: UIAlertController.Style.alert
+      )
+      
+      alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:nil))
+      
+      alert.addAction(UIAlertAction(title: "Start New", style: .default, handler:{ (UIAlertAction) in
+        self.startNewCompare()
+      }))
+      
+      self.present(alert, animated: true, completion: nil)
     }
-
-    @IBAction func sliderValueChanged(_ sender: UISlider) {
-        print(sender.value)
+    
+  }
+  
+  
+  func startNewCompare() {
+    
+    compatibilityChecker.startNewCompare(
+      person1: Person(id: 1, items: [:]),
+      person2: Person(id: 2, items: [:])
+    )
+    
+    
+      updateViews()
+    
+    
+  }
+  
+  func updateViews(){
+    
+    if compatibilityChecker.isPerson1Current(){
+      questionLabel.text = "User 1, what do you think about..."
+    } else {
+      questionLabel.text = "User 2, what do you think about..."
     }
-
-    @IBAction func didPressNextItemButton(_ sender: Any) {
-    }
-
-    func calculateCompatibility() -> String {
-        // If diff 0.0 is 100% and 5.0 is 0%, calculate match percentage
-        var percentagesForAllItems: [Double] = []
-
-        for (key, person1Rating) in person1.items {
-            let person2Rating = person2.items[key] ?? 0
-            let difference = abs(person1Rating - person2Rating)/5.0
-            percentagesForAllItems.append(Double(difference))
-        }
-
-        let sumOfAllPercentages = percentagesForAllItems.reduce(0, +)
-        let matchPercentage = sumOfAllPercentages/Double(compatibilityItems.count)
-        print(matchPercentage, "%")
-        let matchString = 100 - (matchPercentage * 100).rounded()
-        return "\(matchString)%"
-    }
-
+    
+    compatibilityItemLabel.text = compatibilityChecker.currentItem
+    slider.setValue(3.0, animated: true)
+  }
+  
+  
+  
 }
 
