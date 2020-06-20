@@ -19,14 +19,13 @@ class CompatibilityChecker{
   private var person2: Person!
   private var currentPerson: Person!
   
-  init() {
-    
-  }
+  
   
   func isPerson1Current() -> Bool {currentPerson == person1}
   
+  
+  
   func toggleCurrentPerson() {
-    
     if currentPerson == person1 {
       currentPerson = person2
     } else {
@@ -36,16 +35,18 @@ class CompatibilityChecker{
     currentItemIndex = 0
   }
   
+  
+  
   func nextItem() -> Bool {
-    
     guard currentItemIndex+1 < compatibilityItems.count else {
       return false
     }
 
     currentItemIndex += 1
-    
     return true
   }
+  
+  
   
   func startNewCompare(person1: Person, person2: Person) {
     self.person1 = person1
@@ -55,6 +56,8 @@ class CompatibilityChecker{
     currentItemIndex = 0
   }
   
+  
+  
   func addRating(rating: Float){
     if currentPerson == person1 {
       person1.items.updateValue(rating, forKey: currentItem)
@@ -62,6 +65,8 @@ class CompatibilityChecker{
       person2.items.updateValue(rating, forKey: currentItem)
     }
   }
+  
+  
   
   func calculateCompatibility() -> String {
       // If diff 0.0 is 100% and 5.0 is 0%, calculate match percentage

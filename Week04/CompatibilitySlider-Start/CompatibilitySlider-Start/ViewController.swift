@@ -16,18 +16,31 @@ class ViewController: UIViewController {
   
   let compatibilityChecker = CompatibilityChecker()
   
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    startNewCompare()
+    
+    compatibilityChecker.startNewCompare(
+      person1: Person(id: 1, items: [:]),
+      person2: Person(id: 2, items: [:])
+    )
+    
+    updateViews()
   }
+  
+  
   
   @IBAction func sliderValueChanged(_ sender: UISlider) {
     print(sender.value)
     
+    //This will create a snaping behavior
+    //Slider will snap only for 5 valuse
+    //from 1 to 5
     let roundedCurrent = slider.value.rounded()
     slider.setValue(roundedCurrent, animated: true)
-    
   }
+  
+  
   
   @IBAction func didPressNextItemButton(_ sender: Any) {
     
@@ -52,30 +65,23 @@ class ViewController: UIViewController {
       alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler:nil))
       
       alert.addAction(UIAlertAction(title: "Start New", style: .default, handler:{ (UIAlertAction) in
-        self.startNewCompare()
+        
+        self.compatibilityChecker.startNewCompare(
+          person1: Person(id: 1, items: [:]),
+          person2: Person(id: 2, items: [:])
+        )
+        
+        self.updateViews()
+        
       }))
       
       self.present(alert, animated: true, completion: nil)
     }
-    
   }
   
   
-  func startNewCompare() {
-    
-    compatibilityChecker.startNewCompare(
-      person1: Person(id: 1, items: [:]),
-      person2: Person(id: 2, items: [:])
-    )
-    
-    
-      updateViews()
-    
-    
-  }
   
   func updateViews(){
-    
     if compatibilityChecker.isPerson1Current(){
       questionLabel.text = "User 1, what do you think about..."
     } else {
@@ -85,8 +91,4 @@ class ViewController: UIViewController {
     compatibilityItemLabel.text = compatibilityChecker.currentItem
     slider.setValue(3.0, animated: true)
   }
-  
-  
-  
 }
-
