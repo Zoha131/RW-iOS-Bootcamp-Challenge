@@ -51,6 +51,12 @@ class ViewController: UIViewController {
       priceLabelRight.alpha = 0
       roomLabelRight.alpha = 0
     } else {
+      // Alpha was zero that's why they were not visible
+      titleLabelRight.alpha = 1.0
+      imageViewRight.alpha = 1.0
+      priceLabelRight.alpha = 1.0
+      roomLabelRight.alpha = 1.0
+
       titleLabelRight.text! = house2!.address!
       priceLabelRight.text! = house2!.price!
       roomLabelRight.text! = house2!.bedrooms!
