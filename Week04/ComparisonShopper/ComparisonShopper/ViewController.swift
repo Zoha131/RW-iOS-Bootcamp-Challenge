@@ -51,7 +51,7 @@ class ViewController: UIViewController {
       priceLabelRight.alpha = 0
       roomLabelRight.alpha = 0
     } else {
-      // Alpha was zero that's why they were not visible
+      // Alpha was zero that's why they were not visible in the page
       titleLabelRight.alpha = 1.0
       imageViewRight.alpha = 1.0
       priceLabelRight.alpha = 1.0
