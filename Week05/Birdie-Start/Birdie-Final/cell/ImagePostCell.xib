@@ -46,16 +46,16 @@
                             </subviews>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xdj-02-UXD">
-                            <rect key="frame" x="0.0" y="70" width="374" height="124"/>
+                            <rect key="frame" x="0.0" y="70" width="374" height="154"/>
                             <string key="text">LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel</string>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="octopus" translatesAutoresizingMaskIntoConstraints="NO" id="g7Z-cx-5NS">
-                            <rect key="frame" x="0.0" y="214" width="374" height="150"/>
+                            <rect key="frame" x="0.0" y="244" width="374" height="120"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="150" id="iGT-Pc-Rdi"/>
+                                <constraint firstAttribute="height" constant="120" id="iGT-Pc-Rdi"/>
                             </constraints>
                         </imageView>
                     </subviews>
