@@ -105,6 +105,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     return postData.mediaPosts.count
   }
   
+  func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+    return nil
+  }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
