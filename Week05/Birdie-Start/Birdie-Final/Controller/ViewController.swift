@@ -13,6 +13,7 @@ class ViewController: UIViewController {
   @IBOutlet weak var tableview: UITableView!
   
   let postData = MediaPostsHandler.shared
+  let viewModel = MediaPostsViewModel()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -111,22 +112,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    let item = postData.mediaPosts[indexPath.row]
+    return viewModel.getTableViewCell(tableView, cellForRowAt: indexPath)
     
-    if let imagePost = item as? ImagePost {
-      
-      let cell = tableView.dequeueReusableCell(withIdentifier: PostType.imagePost.rawValue) as! ImagePostTableViewCell
-      cell.setData(imagePost: imagePost)
-      
-      return cell
-      
-    } else{
-      
-      let cell = tableView.dequeueReusableCell(withIdentifier: PostType.textPost.rawValue) as! TextPostTableViewCell
-      cell.setData(textPost: item)
-      
-      return cell
-    }
   }
 }
 

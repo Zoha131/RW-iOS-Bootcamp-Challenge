@@ -12,6 +12,7 @@
 		899EF0E324A9A53200B84536 /* PostType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899EF0E224A9A53200B84536 /* PostType.swift */; };
 		899EF0E524A9AEF200B84536 /* ImagePostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 899EF0E424A9AEF200B84536 /* ImagePostCell.xib */; };
 		899EF0E724A9AF1400B84536 /* ImagePostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899EF0E624A9AF1400B84536 /* ImagePostTableViewCell.swift */; };
+		899EF0E924A9F39800B84536 /* MediaPostsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899EF0E824A9F39800B84536 /* MediaPostsViewModel.swift */; };
 		C3C9D35E249B324B001F55A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D35D249B324B001F55A6 /* AppDelegate.swift */; };
 		C3C9D360249B324B001F55A6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D35F249B324B001F55A6 /* SceneDelegate.swift */; };
 		C3C9D362249B324B001F55A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3C9D361249B324B001F55A6 /* ViewController.swift */; };
@@ -50,6 +51,7 @@
 		899EF0E224A9A53200B84536 /* PostType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostType.swift; sourceTree = "<group>"; };
 		899EF0E424A9AEF200B84536 /* ImagePostCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImagePostCell.xib; sourceTree = "<group>"; };
 		899EF0E624A9AF1400B84536 /* ImagePostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePostTableViewCell.swift; sourceTree = "<group>"; };
+		899EF0E824A9F39800B84536 /* MediaPostsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPostsViewModel.swift; sourceTree = "<group>"; };
 		C3C9D35A249B324B001F55A6 /* Birdie-Final.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Birdie-Final.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3C9D35D249B324B001F55A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3C9D35F249B324B001F55A6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				C3C9D361249B324B001F55A6 /* ViewController.swift */,
+				899EF0E824A9F39800B84536 /* MediaPostsViewModel.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				C3C9D362249B324B001F55A6 /* ViewController.swift in Sources */,
 				899EF0E324A9A53200B84536 /* PostType.swift in Sources */,
 				C3C9D397249B346E001F55A6 /* MediaPostProtocol.swift in Sources */,
+				899EF0E924A9F39800B84536 /* MediaPostsViewModel.swift in Sources */,
 				C3C9D39B249B3711001F55A6 /* MediaPostsHandler.swift in Sources */,
 				899EF0E724A9AF1400B84536 /* ImagePostTableViewCell.swift in Sources */,
 				C3C9D368249B324B001F55A6 /* Birdie_Final.xcdatamodeld in Sources */,
