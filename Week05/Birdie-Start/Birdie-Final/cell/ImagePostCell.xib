@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Xgk-Mn-kxB" customClass="ImagePostTableViewCell" customModule="Birdie_Final" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="404"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="efH-hh-zVU">
+                    <rect key="frame" x="20" y="20" width="374" height="364"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="l5G-18-8vr">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mascot_swift-badge" translatesAutoresizingMaskIntoConstraints="NO" id="hw4-XF-P7L">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="50" id="Gtj-DM-oNk"/>
+                                        <constraint firstAttribute="height" constant="50" id="fmt-tH-GeT"/>
+                                    </constraints>
+                                </imageView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="sE6-ux-Z8R">
+                                    <rect key="frame" x="60" y="0.0" width="314" height="50"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZK7-bj-uQJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="314" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuQ-Mh-Bko">
+                                            <rect key="frame" x="0.0" y="32" width="314" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xdj-02-UXD">
+                            <rect key="frame" x="0.0" y="70" width="374" height="154"/>
+                            <string key="text">LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="octopus" translatesAutoresizingMaskIntoConstraints="NO" id="g7Z-cx-5NS">
+                            <rect key="frame" x="0.0" y="244" width="374" height="120"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="120" id="iGT-Pc-Rdi"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="efH-hh-zVU" firstAttribute="top" secondItem="Xgk-Mn-kxB" secondAttribute="top" constant="20" id="AOo-Bm-Obu"/>
+                <constraint firstItem="efH-hh-zVU" firstAttribute="leading" secondItem="Xgk-Mn-kxB" secondAttribute="leading" constant="20" id="PFK-Mm-Jeh"/>
+                <constraint firstAttribute="bottom" secondItem="efH-hh-zVU" secondAttribute="bottom" constant="20" id="VNl-GR-hmj"/>
+                <constraint firstAttribute="trailing" secondItem="efH-hh-zVU" secondAttribute="trailing" constant="20" id="bJl-oo-h1a"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="d1B-an-cbT"/>
+            <connections>
+                <outlet property="nameLabel" destination="ZK7-bj-uQJ" id="ug6-Nd-Quy"/>
+                <outlet property="postImage" destination="g7Z-cx-5NS" id="JeX-ns-sOl"/>
+                <outlet property="postLabel" destination="Xdj-02-UXD" id="Ode-dD-qzQ"/>
+                <outlet property="timeLabel" destination="fuQ-Mh-Bko" id="a8J-Wk-lho"/>
+            </connections>
+            <point key="canvasLocation" x="60.869565217391312" y="-68.973214285714278"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="mascot_swift-badge" width="1000" height="1000"/>
+        <image name="octopus" width="1000" height="1000"/>
+    </resources>
+</document>
