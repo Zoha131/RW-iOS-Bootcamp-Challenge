@@ -48,28 +48,20 @@ class ViewController: UIViewController {
         let postTxt = alert.textFields?[1].text
         let time = Date()
         
+        let newMediaPost: MediaPost
+        
         if let postImage = image {
-          
-          let imagePost = ImagePost(textBody: postTxt, userName: userName, timestamp: time, image: postImage)
-          
-          self.postData.addImagePost(imagePost: imagePost)
-          
-          if let index = self.postData.mediaPosts.firstIndex(where: {$0.timestamp == imagePost.timestamp}) {
-            
-            let indexPath = IndexPath(row: index, section: 0)
-            self.tableview.insertRows(at: [indexPath], with: .automatic)
-          }
+          newMediaPost = ImagePost(textBody: postTxt, userName: userName, timestamp: time, image: postImage)
+          self.postData.addImagePost(imagePost: newMediaPost as! ImagePost)
           
         } else {
-          let texstPost = TextPost(textBody: postTxt, userName: userName, timestamp: time)
-          
-          self.postData.addTextPost(textPost: texstPost)
-          
-          if let index = self.postData.mediaPosts.firstIndex(where: {$0.timestamp == texstPost.timestamp}) {
-            
-            let indexPath = IndexPath(row: index, section: 0)
-            self.tableview.insertRows(at: [indexPath], with: .automatic)
-          }
+          newMediaPost = TextPost(textBody: postTxt, userName: userName, timestamp: time)
+          self.postData.addTextPost(textPost: newMediaPost as! TextPost)
+        }
+        
+        if let index = self.postData.mediaPosts.firstIndex(where: {$0.timestamp == newMediaPost.timestamp}) {
+          let indexPath = IndexPath(row: index, section: 0)
+          self.tableview.insertRows(at: [indexPath], with: .automatic)
         }
       }
     })
@@ -79,7 +71,7 @@ class ViewController: UIViewController {
     }
     
     alert.addTextField { (textField) in
-      textField.placeholder = "what's in your mind?"
+      textField.placeholder = "What's in your mind?"
     }
     
     alert.addAction(okAction)
@@ -111,9 +103,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
     return viewModel.getTableViewCell(tableView, cellForRowAt: indexPath)
-    
   }
 }
 
@@ -130,7 +120,6 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
       
     }
   }
-  
 }
 
 
