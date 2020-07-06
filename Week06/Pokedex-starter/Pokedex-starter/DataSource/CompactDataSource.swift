@@ -53,3 +53,48 @@ class CompactDataSource: NSObject, UICollectionViewDataSource{
   }
 }
 
+class LargeDataSource: NSObject, UICollectionViewDataSource{
+  
+  private let data = PokemonGenerator.shared.generatePokemons()
+  
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    data.count
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    
+    
+    let pokemon = data[indexPath.row]
+    
+    
+    if UIApplication.shared.statusBarOrientation.isLandscape {
+      // activate landscape changes
+      
+      
+      guard let compactCell = collectionView.dequeueReusableCell(withReuseIdentifier: LandScapeLargeCollectionViewCell.reuseIdentifier, for: indexPath) as? LandScapeLargeCollectionViewCell else {
+        fatalError("Cell cannot be created")
+      }
+
+      compactCell.updateData(pokemon: pokemon)
+      
+      return compactCell
+      
+    } else {
+      // activate portrait changes
+      
+      
+      guard let compactCell = collectionView.dequeueReusableCell(withReuseIdentifier: LargeCollectionViewCell.reuseIdentifier, for: indexPath) as? LargeCollectionViewCell else {
+        fatalError("Cell cannot be created")
+      }
+      
+
+      compactCell.updateData(pokemon: pokemon)
+      return compactCell
+      
+      
+    }
+    
+    
+  }
+}
+

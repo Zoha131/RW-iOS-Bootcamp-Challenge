@@ -34,21 +34,46 @@ import UIKit
 
 class LargeViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+  @IBOutlet weak var collectionView: UICollectionView!
+  let dataSource = LargeDataSource()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
+    collectionView.register(LargeCollectionViewCell.self, forCellWithReuseIdentifier: LargeCollectionViewCell.reuseIdentifier)
+    collectionView.register(LandScapeLargeCollectionViewCell.self, forCellWithReuseIdentifier: LandScapeLargeCollectionViewCell.reuseIdentifier)
+    collectionView.dataSource = dataSource
+    collectionView.collectionViewLayout = createCompositionalLayout()
+  }
+  
+  override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+      super.viewWillTransition(to: size, with: coordinator)
 
-    /*
-    // MARK: - Navigation
+    collectionView.collectionViewLayout.invalidateLayout()
+  }
+  
+  func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
+    let layout = UICollectionViewCompositionalLayout { sectionIndex, layoutEnvironment in
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        let layoutItem = NSCollectionLayoutItem(layoutSize: itemSize)
+        layoutItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10)
+
+      let layoutGroupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.75), heightDimension: .fractionalHeight(1))
+        let layoutGroup = NSCollectionLayoutGroup.horizontal(layoutSize: layoutGroupSize, subitems: [layoutItem])
+
+        let layoutSection = NSCollectionLayoutSection(group: layoutGroup)
+        layoutSection.orthogonalScrollingBehavior = .groupPagingCentered
+      
+      layoutSection.contentInsets = NSDirectionalEdgeInsets(top: 40, leading: 5, bottom: 40, trailing: 5)
+      
+        return layoutSection
     }
-    */
+
+    let config = UICollectionViewCompositionalLayoutConfiguration()
+    config.interSectionSpacing = 50
+    layout.configuration = config
+    return layout
+  }
 
 }
