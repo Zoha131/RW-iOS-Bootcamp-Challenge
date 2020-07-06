@@ -30,13 +30,18 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
+import UIKit
 
-struct Pokemon {
-  let pokemonID: Int
-  let pokemonName: String
-  let baseExp: Int
-  let height: Int
-  let weight: Int
+class LargeCollectionViewCell: UICollectionViewCell {
+  
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    
+    backgroundColor = .black
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("Storyboard not supported")
+  }
+    
 }
-

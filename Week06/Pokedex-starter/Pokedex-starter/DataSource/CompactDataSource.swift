@@ -30,13 +30,26 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
+import UIKit
 
-struct Pokemon {
-  let pokemonID: Int
-  let pokemonName: String
-  let baseExp: Int
-  let height: Int
-  let weight: Int
+class CompactDataSource: NSObject, UICollectionViewDataSource{
+  
+  private let data = PokemonGenerator.shared.generatePokemons()
+  
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    data.count
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    guard let compactCell = collectionView.dequeueReusableCell(withReuseIdentifier: CompactCollectionViewCell.reuseIdentifier, for: indexPath) as? CompactCollectionViewCell else {
+      fatalError("Cell cannot be created")
+    }
+    
+    let pokemon = data[indexPath.row]
+    
+    compactCell.updateData(pokemon: pokemon)
+    
+    return compactCell
+  }
 }
 

@@ -30,13 +30,25 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
+import UIKit
 
-struct Pokemon {
-  let pokemonID: Int
-  let pokemonName: String
-  let baseExp: Int
-  let height: Int
-  let weight: Int
+class CompactViewController: UIViewController {
+  
+  @IBOutlet weak var collectionView: UICollectionView!
+  
+  let dataSource = CompactDataSource()
+  let delegate = CompactDelegate(itemSpacing: 10, row: 3, sectionInset: 16)
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    collectionView.register(CompactCollectionViewCell.self, forCellWithReuseIdentifier: CompactCollectionViewCell.reuseIdentifier)
+    collectionView.dataSource = dataSource
+    collectionView.delegate = delegate
+  }
+  
+  override func viewWillLayoutSubviews() {
+      super.viewWillLayoutSubviews()
+      collectionView.collectionViewLayout.invalidateLayout()
+  }
 }
-

@@ -30,13 +30,39 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import Foundation
+import UIKit
 
-struct Pokemon {
-  let pokemonID: Int
-  let pokemonName: String
-  let baseExp: Int
-  let height: Int
-  let weight: Int
+class CompactDelegate: NSObject, UICollectionViewDelegateFlowLayout {
+  
+  let interItemSpacing: CGFloat
+  let sectionInset: CGFloat
+  let numberOfItemsPerRow: CGFloat
+  
+  init(itemSpacing interItemSpacing: CGFloat, row numberOfItemsPerRow: CGFloat, sectionInset: CGFloat) {
+    self.interItemSpacing = interItemSpacing
+    self.numberOfItemsPerRow = numberOfItemsPerRow
+    self.sectionInset = sectionInset
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    return UIEdgeInsets(top: sectionInset, left: sectionInset, bottom: sectionInset, right: sectionInset)
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return interItemSpacing
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    return interItemSpacing
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    
+    let maxWidth = collectionView.safeAreaLayoutGuide.layoutFrame.size.width
+    let totalSpacing = interItemSpacing * numberOfItemsPerRow + ( 2 * sectionInset)
+    let itemWidth = (maxWidth - totalSpacing) / numberOfItemsPerRow
+    
+    return CGSize(width: itemWidth, height: itemWidth)
+  }
+  
 }
-
