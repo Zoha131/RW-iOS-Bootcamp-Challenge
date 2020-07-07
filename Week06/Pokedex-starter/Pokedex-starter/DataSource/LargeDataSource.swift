@@ -32,7 +32,7 @@
 
 import UIKit
 
-class CompactDataSource: NSObject, UICollectionViewDataSource{
+class LargeDataSource: NSObject, UICollectionViewDataSource{
   
   private let data = PokemonGenerator.shared.generatePokemons()
   
@@ -41,15 +41,26 @@ class CompactDataSource: NSObject, UICollectionViewDataSource{
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let compactCell = collectionView.dequeueReusableCell(withReuseIdentifier: CompactCollectionViewCell.reuseIdentifier, for: indexPath) as? CompactCollectionViewCell else {
-      fatalError("Cell cannot be created")
-    }
     
     let pokemon = data[indexPath.row]
     
-    compactCell.updateData(pokemon: pokemon)
-    
-    return compactCell
+    if UIApplication.shared.statusBarOrientation.isLandscape {
+ 
+      guard let compactCell = collectionView.dequeueReusableCell(withReuseIdentifier: LandScapeLargeCollectionViewCell.reuseIdentifier, for: indexPath) as? LandScapeLargeCollectionViewCell else {
+        fatalError("Cell cannot be created")
+      }
+
+      compactCell.updateData(pokemon: pokemon)
+      return compactCell
+      
+    } else {
+      
+      guard let compactCell = collectionView.dequeueReusableCell(withReuseIdentifier: LargeCollectionViewCell.reuseIdentifier, for: indexPath) as? LargeCollectionViewCell else {
+        fatalError("Cell cannot be created")
+      }
+
+      compactCell.updateData(pokemon: pokemon)
+      return compactCell
+    }
   }
 }
-

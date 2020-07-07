@@ -18,6 +18,7 @@
 		89A87D7424B371E60089F949 /* CompactDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A87D7324B371E60089F949 /* CompactDataSource.swift */; };
 		89ABC29A24B32B1600FA8193 /* CompactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ABC29924B32B1600FA8193 /* CompactViewController.swift */; };
 		89ABC29C24B32B3B00FA8193 /* LargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89ABC29B24B32B3B00FA8193 /* LargeViewController.swift */; };
+		89C1B3BE24B4024D00BEBC09 /* LargeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C1B3BD24B4024D00BEBC09 /* LargeDataSource.swift */; };
 		A10D04F924ABC8DB00DE5D14 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10D04F824ABC8DB00DE5D14 /* Pokemon.swift */; };
 		A11D349A24AABED7002BDD2B /* Pokemon Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A11D349824AABED7002BDD2B /* Pokemon Solid.ttf */; };
 		A11D349B24AABED7002BDD2B /* Pokemon Hollow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A11D349924AABED7002BDD2B /* Pokemon Hollow.ttf */; };
@@ -40,6 +41,7 @@
 		89A87D7324B371E60089F949 /* CompactDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactDataSource.swift; sourceTree = "<group>"; };
 		89ABC29924B32B1600FA8193 /* CompactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactViewController.swift; sourceTree = "<group>"; };
 		89ABC29B24B32B3B00FA8193 /* LargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeViewController.swift; sourceTree = "<group>"; };
+		89C1B3BD24B4024D00BEBC09 /* LargeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeDataSource.swift; sourceTree = "<group>"; };
 		A10D04F824ABC8DB00DE5D14 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		A11D349824AABED7002BDD2B /* Pokemon Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon Solid.ttf"; sourceTree = "<group>"; };
 		A11D349924AABED7002BDD2B /* Pokemon Hollow.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pokemon Hollow.ttf"; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				89A87D7324B371E60089F949 /* CompactDataSource.swift */,
+				89C1B3BD24B4024D00BEBC09 /* LargeDataSource.swift */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				A125200D24AAABA0008F7E2E /* PokemonGenerator.swift in Sources */,
 				185CB1FC23C78CE6009F7571 /* AppDelegate.swift in Sources */,
 				89ABC29C24B32B3B00FA8193 /* LargeViewController.swift in Sources */,
+				89C1B3BE24B4024D00BEBC09 /* LargeDataSource.swift in Sources */,
 				185CB1FE23C78CE6009F7571 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

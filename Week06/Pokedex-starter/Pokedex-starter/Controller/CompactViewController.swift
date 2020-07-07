@@ -48,7 +48,7 @@ class CompactViewController: UIViewController {
   }
   
   override func viewWillLayoutSubviews() {
-      super.viewWillLayoutSubviews()
-      collectionView.collectionViewLayout.invalidateLayout()
+    super.viewWillLayoutSubviews()
+    collectionView.collectionViewLayout.invalidateLayout()
   }
 }

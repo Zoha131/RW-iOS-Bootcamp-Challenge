@@ -32,7 +32,7 @@
 
 import Foundation
 
-struct Pokemon {
+struct Pokemon: Hashable {
   let pokemonID: Int
   let pokemonName: String
   let baseExp: Int
