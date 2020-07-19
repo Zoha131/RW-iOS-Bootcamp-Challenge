@@ -22,7 +22,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   required init?(coder: NSCoder) {
     super.init(coder: coder)
     
-    loadSandwiches()
+    sandwiches.append(contentsOf: viewModel.loadSandwiceDataFromJSON())
   }
   
   override func viewDidLoad() {
@@ -44,20 +44,6 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-  }
-  
-  func loadSandwiches() {
-    let sandwichArray = [SandwichData(name: "Bagel Toast", sauceAmount: .none, imageName: "sandwich1"),
-                         SandwichData(name: "Bologna", sauceAmount: .none, imageName: "sandwich2"),
-                         SandwichData(name: "Breakfast Roll", sauceAmount: .none, imageName: "sandwich3"),
-                         SandwichData(name: "Club", sauceAmount: .none, imageName: "sandwich4"),
-                         SandwichData(name: "Sub", sauceAmount: .none, imageName: "sandwich5"),
-                         SandwichData(name: "Steak", sauceAmount: .tooMuch, imageName: "sandwich6"),
-                         SandwichData(name: "Dunno", sauceAmount: .tooMuch, imageName: "sandwich7"),
-                         SandwichData(name: "Torta", sauceAmount: .tooMuch, imageName: "sandwich8"),
-                         SandwichData(name: "Ham", sauceAmount: .tooMuch, imageName: "sandwich9"),
-                         SandwichData(name: "Lettuce", sauceAmount: .tooMuch, imageName: "sandwich10")]
-    sandwiches.append(contentsOf: sandwichArray)
   }
 
   func saveSandwich(_ sandwich: SandwichData) {

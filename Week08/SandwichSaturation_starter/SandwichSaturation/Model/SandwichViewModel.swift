@@ -28,5 +28,30 @@ class SandwichViewModel {
   
   func setSelectedSauceAmount(_ sauceAmount: SauceAmount) {
     defaults.set(sauceAmount.rawValue, forKey: KEY_SAUCE)
+    print("SauceAmount Saved: \(sauceAmount.rawValue)")
+  }
+  
+  func loadSandwiceDataFromJSON() -> [SandwichData] {
+    
+    let decoder = JSONDecoder()
+    
+    if let path = Bundle.main.path(forResource: "sandwiches", ofType: "json"){
+      
+      let JsonURL = URL(fileURLWithPath: path)
+      
+      do {
+        let data = try Data(contentsOf: JsonURL)
+      
+        let sandwiches = try decoder.decode([SandwichData].self, from: data)
+        
+        return sandwiches
+      
+      } catch let error {
+        print("Something went wrong \(error)")
+      }
+      
+    }
+    
+    return []
   }
 }
