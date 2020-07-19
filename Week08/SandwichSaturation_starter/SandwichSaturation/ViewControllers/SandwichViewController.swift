@@ -16,6 +16,8 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   let searchController = UISearchController(searchResultsController: nil)
   var sandwiches = [SandwichData]()
   var filteredSandwiches = [SandwichData]()
+  
+  let viewModel = SandwichViewModel()
 
   required init?(coder: NSCoder) {
     super.init(coder: coder)
@@ -36,6 +38,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     navigationItem.searchController = searchController
     definesPresentationContext = true
     searchController.searchBar.scopeButtonTitles = SauceAmount.allCases.map { $0.rawValue }
+    searchController.searchBar.selectedScopeButtonIndex = viewModel.getSelectedSauceAmountIndex()
     searchController.searchBar.delegate = self
   }
 
@@ -72,8 +75,10 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     return searchController.searchBar.text?.isEmpty ?? true
   }
   
-  func filterContentForSearchText(_ searchText: String,
-                                  sauceAmount: SauceAmount? = nil) {
+  func filterContentForSearchText(
+    _ searchText: String,
+    sauceAmount: SauceAmount? = nil
+  ) {
     filteredSandwiches = sandwiches.filter { (sandwhich: SandwichData) -> Bool in
       let doesSauceAmountMatch = sauceAmount == .any || sandwhich.sauceAmount == sauceAmount
 
@@ -124,8 +129,11 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
 extension SandwichViewController: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
     let searchBar = searchController.searchBar
-    let sauceAmount = SauceAmount(rawValue:
-      searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex])
+    let sauceAmount = SauceAmount(
+      rawValue:searchBar.scopeButtonTitles![
+        searchBar.selectedScopeButtonIndex
+      ]
+    )
 
     filterContentForSearchText(searchBar.text!, sauceAmount: sauceAmount)
   }
@@ -133,11 +141,17 @@ extension SandwichViewController: UISearchResultsUpdating {
 
 // MARK: - UISearchBarDelegate
 extension SandwichViewController: UISearchBarDelegate {
-  func searchBar(_ searchBar: UISearchBar,
-      selectedScopeButtonIndexDidChange selectedScope: Int) {
-    let sauceAmount = SauceAmount(rawValue:
-      searchBar.scopeButtonTitles![selectedScope])
-    filterContentForSearchText(searchBar.text!, sauceAmount: sauceAmount)
+  
+  func searchBar(
+    _ searchBar: UISearchBar,
+    selectedScopeButtonIndexDidChange selectedScope: Int
+  ) {
+    
+    if let sauceAmount = SauceAmount(rawValue: searchBar.scopeButtonTitles![selectedScope]){
+      
+      viewModel.setSelectedSauceAmount(sauceAmount)
+      filterContentForSearchText(searchBar.text!, sauceAmount: sauceAmount)
+    }
   }
 }
 
