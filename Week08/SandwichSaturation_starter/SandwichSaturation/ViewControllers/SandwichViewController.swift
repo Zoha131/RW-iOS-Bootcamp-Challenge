@@ -14,19 +14,21 @@ protocol SandwichDataSource {
 
 class SandwichViewController: UITableViewController, SandwichDataSource {
   let searchController = UISearchController(searchResultsController: nil)
-  var sandwiches = [SandwichData]()
-  var filteredSandwiches = [SandwichData]()
+  var sandwiches = [Sandwich]()
+  var filteredSandwiches = [Sandwich]()
   
   let viewModel = SandwichViewModel()
 
   required init?(coder: NSCoder) {
     super.init(coder: coder)
     
-    sandwiches.append(contentsOf: viewModel.loadSandwiceDataFromJSON())
+    sandwiches = viewModel.fetchSandwiches()
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    _ = viewModel.fetchSandwiches()
         
     let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(presentAddView(_:)))
     navigationItem.rightBarButtonItem = addButton
@@ -47,7 +49,8 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   }
 
   func saveSandwich(_ sandwich: SandwichData) {
-    sandwiches.append(sandwich)
+    viewModel.addSandwich(sandwich)
+    sandwiches = viewModel.fetchSandwiches()
     tableView.reloadData()
   }
 
@@ -65,8 +68,8 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     _ searchText: String,
     sauceAmount: SauceAmount? = nil
   ) {
-    filteredSandwiches = sandwiches.filter { (sandwhich: SandwichData) -> Bool in
-      let doesSauceAmountMatch = sauceAmount == .any || sandwhich.sauceAmount == sauceAmount
+    filteredSandwiches = sandwiches.filter { sandwhich -> Bool in
+      let doesSauceAmountMatch = sauceAmount == .any || sandwhich.sauceAmount.sauceAmount == sauceAmount
 
       if isSearchBarEmpty {
         return doesSauceAmountMatch
@@ -105,7 +108,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
 
     cell.thumbnail.image = UIImage.init(imageLiteralResourceName: sandwich.imageName)
     cell.nameLabel.text = sandwich.name
-    cell.sauceLabel.text = sandwich.sauceAmount.description
+    cell.sauceLabel.text = sandwich.sauceAmount.sauceAmountString
 
     return cell
   }
