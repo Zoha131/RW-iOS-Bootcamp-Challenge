@@ -16,7 +16,7 @@ class SandwichViewModel {
   private let KEY_SAUCE = "KEY_SAUCE"
   private let KEY_FIRST_TIME = "KEY_FIRST_TIME"
   
-  private var isAlreadyLoaded: Bool {
+  private var isSeedDataLoaded: Bool {
     get{
       return defaults.bool(forKey: KEY_FIRST_TIME)
     }
@@ -29,10 +29,10 @@ class SandwichViewModel {
   lazy var persistentContainer: NSPersistentContainer = {
     let container = NSPersistentContainer(name: "Database")
     container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-        //print(storeDescription)
-        if let error = error as NSError? {
-          fatalError("Unresolved error \(error), \(error.userInfo)")
-        }
+      //print(storeDescription)
+      if let error = error as NSError? {
+        fatalError("Unresolved error \(error), \(error.userInfo)")
+      }
     })
     return container
   }()
@@ -40,6 +40,15 @@ class SandwichViewModel {
   lazy var coreDataContext: NSManagedObjectContext = {
     persistentContainer.viewContext
   }()
+  
+  init() {
+    if !isSeedDataLoaded {
+      loadSandwiceDataFromJSON().forEach { (sandwichData) in
+        self.addSandwich(sandwichData)
+      }
+      isSeedDataLoaded = true
+    }
+  }
   
   func saveContext() {
     let context = persistentContainer.viewContext
@@ -57,7 +66,7 @@ class SandwichViewModel {
     let sauceAmountModel = SauceAmountModel(context: coreDataContext)
     sauceAmountModel.sauceAmountString = sandwichData.sauceAmount.rawValue
     
-
+    
     // FIXME: for some weird reason this code give me fatal error.
     // I think, I some issue with the  NSEntityDescriptions
     // let sandwich = Sandwich(entity: Sandwich.entity(), insertInto: coreDataContext)
@@ -69,22 +78,31 @@ class SandwichViewModel {
     saveContext()
   }
   
-  func fetchSandwiches() -> [Sandwich] {
-    
-    if !isAlreadyLoaded {
-      loadSandwiceDataFromJSON().forEach { (sandwichData) in
-        self.addSandwich(sandwichData)
-      }
-      
-      print("Seed data loaded")
-      isAlreadyLoaded = true
-    }
+  func fetchSandwiches(for query: String? = nil, sauce: SauceAmount? = nil) -> [Sandwich] {
     
     let request = Sandwich.fetchRequest() as NSFetchRequest<Sandwich>
+    var predicates: [NSPredicate] = []
+    
+    if let name = query, !name.isEmpty {
+      let namePredicate = NSPredicate(
+        format: "name CONTAINS[cd] %@",
+        name
+      )
+      predicates.append(namePredicate)
+    }
+    
+    if let sauceAmount = sauce, sauceAmount != .any{
+      let saucePredicate = NSPredicate(
+        format: "sauceAmount.sauceAmountString = %@",
+        sauceAmount.rawValue
+      )
+      predicates.append(saucePredicate)
+    }
+    
+    request.predicate = NSCompoundPredicate(type: .and, subpredicates: predicates)
     
     do {
       let data = try coreDataContext.fetch(request)
-      
       return data
       
     } catch let error as NSError {

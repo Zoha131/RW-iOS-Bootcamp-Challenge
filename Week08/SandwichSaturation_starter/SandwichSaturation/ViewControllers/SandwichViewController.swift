@@ -68,16 +68,18 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     _ searchText: String,
     sauceAmount: SauceAmount? = nil
   ) {
-    filteredSandwiches = sandwiches.filter { sandwhich -> Bool in
-      let doesSauceAmountMatch = sauceAmount == .any || sandwhich.sauceAmount.sauceAmount == sauceAmount
-
-      if isSearchBarEmpty {
-        return doesSauceAmountMatch
-      } else {
-        return doesSauceAmountMatch && sandwhich.name.lowercased()
-          .contains(searchText.lowercased())
-      }
-    }
+//    filteredSandwiches = sandwiches.filter { sandwhich -> Bool in
+//      let doesSauceAmountMatch = sauceAmount == .any || sandwhich.sauceAmount.sauceAmount == sauceAmount
+//
+//      if isSearchBarEmpty {
+//        return doesSauceAmountMatch
+//      } else {
+//        return doesSauceAmountMatch && sandwhich.name.lowercased()
+//          .contains(searchText.lowercased())
+//      }
+//    }
+    
+    filteredSandwiches = viewModel.fetchSandwiches(for: searchText, sauce: sauceAmount)
     
     tableView.reloadData()
   }
