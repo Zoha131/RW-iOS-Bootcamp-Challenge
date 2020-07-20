@@ -16,6 +16,7 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
   let searchController = UISearchController(searchResultsController: nil)
   var sandwiches = [Sandwich]()
   var filteredSandwiches = [Sandwich]()
+  var prevSearchQuery: (searchText: String, sauceAmount: SauceAmount?) = ("", nil)
   
   let viewModel = SandwichViewModel()
 
@@ -68,17 +69,8 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     _ searchText: String,
     sauceAmount: SauceAmount? = nil
   ) {
-//    filteredSandwiches = sandwiches.filter { sandwhich -> Bool in
-//      let doesSauceAmountMatch = sauceAmount == .any || sandwhich.sauceAmount.sauceAmount == sauceAmount
-//
-//      if isSearchBarEmpty {
-//        return doesSauceAmountMatch
-//      } else {
-//        return doesSauceAmountMatch && sandwhich.name.lowercased()
-//          .contains(searchText.lowercased())
-//      }
-//    }
-    
+    prevSearchQuery.searchText = searchText
+    prevSearchQuery.sauceAmount = sauceAmount
     filteredSandwiches = viewModel.fetchSandwiches(for: searchText, sauce: sauceAmount)
     
     tableView.reloadData()
@@ -113,6 +105,21 @@ class SandwichViewController: UITableViewController, SandwichDataSource {
     cell.sauceLabel.text = sandwich.sauceAmount.sauceAmountString
 
     return cell
+  }
+  
+  override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+      if editingStyle == .delete {
+        
+        let sandwich = sandwiches[indexPath.row]
+        viewModel.deleteSandwich(sandwich)
+        sandwiches = viewModel.fetchSandwiches()
+        filteredSandwiches = viewModel.fetchSandwiches(
+          for: prevSearchQuery.searchText,
+          sauce: prevSearchQuery.sauceAmount
+        )
+          
+        tableView.reloadData()
+      } 
   }
 }
 

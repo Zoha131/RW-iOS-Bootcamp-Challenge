@@ -78,6 +78,11 @@ class SandwichViewModel {
     saveContext()
   }
   
+  func deleteSandwich( _ sandwich: Sandwich){
+    coreDataContext.delete(sandwich)
+    saveContext()
+  }
+  
   func fetchSandwiches(for query: String? = nil, sauce: SauceAmount? = nil) -> [Sandwich] {
     
     let request = Sandwich.fetchRequest() as NSFetchRequest<Sandwich>
