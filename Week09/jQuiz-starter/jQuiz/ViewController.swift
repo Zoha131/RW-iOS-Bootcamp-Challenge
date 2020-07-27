@@ -56,7 +56,10 @@ class ViewController: UIViewController {
         case .failure( let error ):
           self.activityIndicator.isHidden = true
           print("error occured \(error)")
-          self.showErrorAlert(for: error)
+          self.showErrorAlert(for: error){
+            alertAction in
+            self.viewModel.fetchNextQuestion()
+          }
         }
       }
       .store(in: &subscriptions)
@@ -67,8 +70,23 @@ class ViewController: UIViewController {
       }
       .store(in: &subscriptions)
     
+    viewModel.$imageData.sink { data in
+      switch data {
+      case .unInitialized:
+        self.viewModel.downloadImage()
+      case .loading:
+        break
+      case .success(let imageData):
+        self.logoImageView.image = UIImage(data: imageData)
+      case .failure(let error):
+        self.showErrorAlert(for: error){
+          alertAction in
+          self.viewModel.downloadImage()
+        }
+      }
+    }
+  .store(in: &subscriptions)
   }
-  
   @IBAction func didPressVolumeButton(_ sender: Any) {
     SoundManager.shared.toggleSoundPreference()
     if SoundManager.shared.isSoundEnabled == false {
@@ -78,17 +96,14 @@ class ViewController: UIViewController {
     }
   }
   
-  private func showErrorAlert(for error: Error){
+  private func showErrorAlert(for error: Error, callback: ((UIAlertAction) -> Void )?){
     
     let alert = UIAlertController(
       title: "Opps!!",
       message: "Something went wrong: \(error.localizedDescription)",
       preferredStyle: .alert
     )
-    let action = UIAlertAction(title: "Try Agin", style: UIAlertAction.Style.default){
-      uiAlertAction in
-      self.viewModel.fetchNextQuestion()
-    }
+    let action = UIAlertAction(title: "Try Agin", style: UIAlertAction.Style.default, handler: callback)
     alert.addAction(action)
     
     self.present(alert, animated: true, completion: nil)

@@ -58,10 +58,30 @@ class QuizViewModel {
       
       fetchNextQuestion()
       
-      
     default:
       return
     }
+  }
+  
+  func downloadImage() {
+    
+    let imageUrl = URL(string: "https://cdn1.edgedatg.com/aws/v2/abc/ABCUpdates/blog/2900129/8484c3386d4378d7c826e3f3690b481b/1600x900-Q90_8484c3386d4378d7c826e3f3690b481b.jpg")!
+    
+    URLSession.shared.downloadTask(with: imageUrl) { (localUrl, response, error) in
+      
+      do {
+        let data = try Data(contentsOf: localUrl!)
+        DispatchQueue.main.async {
+          self.imageData = .success(data)
+        }
+      }catch let error {
+        print("\(error.localizedDescription)")
+        DispatchQueue.main.async {
+          self.imageData = .failure(error)
+        }
+      }
+      
+    }.resume()
   }
   
   func fetchNextQuestion(){
