@@ -64,22 +64,26 @@ class ViewController: UIViewController {
       }
       .store(in: &subscriptions)
     
-    viewModel.$imageData.sink { data in
-      switch data {
-      case .unInitialized:
-        self.viewModel.downloadImage()
-      case .loading:
-        break
-      case .success(let imageData):
-        self.logoImageView.image = UIImage(data: imageData)
-      case .failure(let error):
-        self.showErrorAlert(for: error){
-          alertAction in
-          self.viewModel.downloadImage()
-        }
-      }
-    }
-  .store(in: &subscriptions)
+//    viewModel.$imageData.sink { data in
+//      switch data {
+//      case .unInitialized:
+//        self.viewModel.downloadImage()
+//      case .loading:
+//        break
+//      case .success(let imageData):
+//        self.logoImageView.image = UIImage(data: imageData)
+//      case .failure(let error):
+//        self.showErrorAlert(for: error){
+//          alertAction in
+//          self.viewModel.downloadImage()
+//        }
+//      }
+//    }
+//  .store(in: &subscriptions)
+    
+    logoImageView.setImage(fromUrlPath: "https://cdn1.edgedatg.com/aws/v2/abc/ABCUpdates/blog/2900129/8484c3386d4378d7c826e3f3690b481b/1600x900-Q90_8484c3386d4378d7c826e3f3690b481b.jpg")
+    
+    
   }
   @IBAction func didPressVolumeButton(_ sender: Any) {
     SoundManager.shared.toggleSoundPreference()
