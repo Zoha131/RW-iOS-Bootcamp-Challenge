@@ -127,7 +127,7 @@ class QuizViewModel {
       clues: clues.map(\.answer),
       category: rightClue.category.title,
       ansIndex: random,
-      score: rightClue.value ?? 0
+      score: rightClue.points ?? 0
     )
     
     DispatchQueue.main.async {

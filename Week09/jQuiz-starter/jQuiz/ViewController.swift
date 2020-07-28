@@ -30,13 +30,7 @@ class ViewController: UIViewController {
     tableView.dataSource = self
     tableView.separatorStyle = .none
     
-    if SoundManager.shared.isSoundEnabled == false {
-      soundButton.setImage(UIImage(systemName: "speaker.slash"), for: .normal)
-    } else {
-      soundButton.setImage(UIImage(systemName: "speaker"), for: .normal)
-    }
-    
-    SoundManager.shared.playSound()
+    updateSound()
     
     viewModel.$quizState
       .sink { quizState in
@@ -89,10 +83,16 @@ class ViewController: UIViewController {
   }
   @IBAction func didPressVolumeButton(_ sender: Any) {
     SoundManager.shared.toggleSoundPreference()
+    updateSound()
+  }
+  
+  private func updateSound() {
     if SoundManager.shared.isSoundEnabled == false {
       soundButton.setImage(UIImage(systemName: "speaker.slash"), for: .normal)
+      SoundManager.shared.pauseSound()
     } else {
       soundButton.setImage(UIImage(systemName: "speaker"), for: .normal)
+      SoundManager.shared.playSound()
     }
   }
   
