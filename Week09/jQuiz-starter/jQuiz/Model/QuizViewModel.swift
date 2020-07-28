@@ -99,7 +99,7 @@ class QuizViewModel {
   func fetchNextQuestion(){
     quizState = .loading
     
-    let locationUrl = URL(string: "http://www.jservice.io/api/random?count=2")!
+    let locationUrl = URL(string: "http://www.jservice.io/api/random")!
     URLSession.shared.dataTaskPublisher(for: locationUrl)
       .map(\.data)
       .decode(type: [Clue].self, decoder: JSONDecoder())
@@ -132,8 +132,6 @@ class QuizViewModel {
     let random = Int.random(in: 0..<4)
     let rightClue = clues[random]
     
-    // FIXME: Check for null value and empty question
-    
     let tempState = QuizState(
       question: rightClue.question,
       clues: clues.map(\.answer),
@@ -143,7 +141,6 @@ class QuizViewModel {
     )
     
     DispatchQueue.main.async {
-      
       self.quizState = .success(tempState)
     }
   }

@@ -91,12 +91,12 @@ class ViewController: UIViewController {
   }
   
   private func updateSound() {
-    if viewModel.isSoundEnabled == false {
-      soundButton.setImage(UIImage(systemName: "speaker.slash"), for: .normal)
-      viewModel.pauseSound()
-    } else {
+    if viewModel.isSoundEnabled {
       soundButton.setImage(UIImage(systemName: "speaker"), for: .normal)
       viewModel.playSound()
+    } else {
+      soundButton.setImage(UIImage(systemName: "speaker.slash"), for: .normal)
+      viewModel.pauseSound()
     }
   }
   
