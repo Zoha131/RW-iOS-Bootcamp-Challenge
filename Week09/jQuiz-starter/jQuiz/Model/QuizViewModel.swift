@@ -8,37 +8,7 @@
 
 import Foundation
 import Combine
-
-struct QuizState{
-  let question: String
-  let clues: [String]
-  let category: String
-  let ansIndex: Int
-  let score: Int
-  
-  init(question: String, clues: [String], category: String, ansIndex: Int, score: Int) {
-    self.question = question
-    self.clues = clues
-    self.category = category
-    self.ansIndex = ansIndex
-    self.score = score
-    
-    guard (0..<4).contains(ansIndex) else{
-      fatalError("ansIndex of QuizState must be in between 0 to 3. current is: \(ansIndex)")
-    }
-    
-    guard clues.count == 4 else{
-      fatalError("count of clues array must be 4. current is: \(clues.count)")
-    }
-  }
-}
-
-enum Async<Success> {
-  case unInitialized
-  case loading
-  case success(Success)
-  case failure(Error)
-}
+import AVFoundation
 
 class QuizViewModel {
   
@@ -48,6 +18,48 @@ class QuizViewModel {
   @Published private(set) var musicData: Async<Data> = .unInitialized
   
   var cancellables: Set<AnyCancellable> = []
+  
+  private var player: AVAudioPlayer?
+  
+  init() {
+    guard let musicUrl = Bundle.main.url(forResource: "Jeopardy-theme-song", withExtension: "mp3") else {
+      fatalError("resource not found")
+    }
+    
+    do {
+      player = try AVAudioPlayer(contentsOf: musicUrl)
+      player?.numberOfLoops = -1
+    } catch let error {
+      print("AvAudioPlayer not initialized \(error)")
+    }
+  }
+  
+  var isSoundEnabled: Bool {
+    get {
+      // Since UserDefaults.standard.bool(forKey: "sound") will default to "false" if it has not been set
+      // You might want to use `object`, because if an object has not been set yet it will be nil
+      // Then if it's nil you know it's the user's first time launching the app
+      UserDefaults.standard.object(forKey: "sound") as? Bool ?? true
+    }
+  }
+  
+  func playSound() {
+    guard let player = self.player else {
+      return
+    }
+    player.play()
+  }
+  
+  func pauseSound() {
+    guard let player = self.player else {
+      return
+    }
+    player.pause()
+  }
+  
+  func toggleSoundPreference() {
+    UserDefaults.standard.set(!isSoundEnabled, forKey: "sound")
+  }
   
   func checkClue(for selectedIndex: Int) {
     switch quizState {
@@ -93,7 +105,7 @@ class QuizViewModel {
       .decode(type: [Clue].self, decoder: JSONDecoder())
       .flatMap { items in
         self.getClues(forCategory: items[0].category )
-      }
+    }
       .sink(receiveCompletion: { completion in // I wanted to wrap this inside a method. but the type of the completion freak me out.
         switch completion {
         case .failure(let error):

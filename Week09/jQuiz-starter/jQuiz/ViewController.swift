@@ -86,17 +86,17 @@ class ViewController: UIViewController {
     
   }
   @IBAction func didPressVolumeButton(_ sender: Any) {
-    SoundManager.shared.toggleSoundPreference()
+    viewModel.toggleSoundPreference()
     updateSound()
   }
   
   private func updateSound() {
-    if SoundManager.shared.isSoundEnabled == false {
+    if viewModel.isSoundEnabled == false {
       soundButton.setImage(UIImage(systemName: "speaker.slash"), for: .normal)
-      SoundManager.shared.pauseSound()
+      viewModel.pauseSound()
     } else {
       soundButton.setImage(UIImage(systemName: "speaker"), for: .normal)
-      SoundManager.shared.playSound()
+      viewModel.playSound()
     }
   }
   

@@ -1,8 +1,8 @@
 //
-//  UIImageView+Extension.swift
+//  ImageCache.swift
 //  jQuiz
 //
-//  Created by Zoha on 7/28/20.
+//  Created by Jay Strawn on 7/19/20.
 //  Copyright © 2020 Jay Strawn. All rights reserved.
 //
 

@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		892067A624D03EE300A52F7B /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892067A524D03EE300A52F7B /* UIImageView+Extension.swift */; };
+		892067A924D0478C00A52F7B /* QuizState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892067A824D0478C00A52F7B /* QuizState.swift */; };
+		892067AB24D0480300A52F7B /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892067AA24D0480300A52F7B /* Async.swift */; };
 		89AA7A8E24CF1F600006B17F /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA7A8D24CF1F600006B17F /* QuizViewModel.swift */; };
 		C3DF5B7724C2549400F6D3EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5B7624C2549400F6D3EC /* AppDelegate.swift */; };
 		C3DF5B7924C2549400F6D3EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5B7824C2549400F6D3EC /* SceneDelegate.swift */; };
@@ -17,7 +18,6 @@
 		C3DF5B8624C2549A00F6D3EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3DF5B8424C2549A00F6D3EC /* LaunchScreen.storyboard */; };
 		C3DF5BAB24C256CF00F6D3EC /* Jeopardy-theme-song.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C3DF5BAA24C256CF00F6D3EC /* Jeopardy-theme-song.mp3 */; };
 		C3DF5BB024C260A600F6D3EC /* Clue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5BAF24C260A600F6D3EC /* Clue.swift */; };
-		C3FBE53624C2877C00D11A30 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FBE53524C2877C00D11A30 /* SoundManager.swift */; };
 		C3FBE53824C4DEA300D11A30 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FBE53724C4DEA300D11A30 /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,7 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		892067A524D03EE300A52F7B /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		892067A824D0478C00A52F7B /* QuizState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizState.swift; sourceTree = "<group>"; };
+		892067AA24D0480300A52F7B /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 		89AA7A8D24CF1F600006B17F /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 		C3DF5B7324C2549400F6D3EC /* jQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3DF5B7624C2549400F6D3EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,7 +54,6 @@
 		C3DF5B9724C2549A00F6D3EC /* jQuizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jQuizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3DF5BAA24C256CF00F6D3EC /* Jeopardy-theme-song.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Jeopardy-theme-song.mp3"; sourceTree = "<group>"; };
 		C3DF5BAF24C260A600F6D3EC /* Clue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clue.swift; sourceTree = "<group>"; };
-		C3FBE53524C2877C00D11A30 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 		C3FBE53724C4DEA300D11A30 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +82,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		892067A724D0475F00A52F7B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C3DF5BAF24C260A600F6D3EC /* Clue.swift */,
+				89AA7A8D24CF1F600006B17F /* QuizViewModel.swift */,
+				892067A824D0478C00A52F7B /* QuizState.swift */,
+				892067AA24D0480300A52F7B /* Async.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		892067AC24D048E700A52F7B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C3FBE53724C4DEA300D11A30 /* ImageCache.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		C3DF5B6A24C2549400F6D3EC = {
 			isa = PBXGroup;
 			children = (
@@ -103,17 +122,14 @@
 		C3DF5B7524C2549400F6D3EC /* jQuiz */ = {
 			isa = PBXGroup;
 			children = (
+				892067AC24D048E700A52F7B /* Extension */,
+				892067A724D0475F00A52F7B /* Model */,
 				C3DF5BA924C254A800F6D3EC /* AppDelegate */,
 				C3DF5B7A24C2549400F6D3EC /* ViewController.swift */,
-				C3FBE53524C2877C00D11A30 /* SoundManager.swift */,
-				C3DF5BAF24C260A600F6D3EC /* Clue.swift */,
-				C3FBE53724C4DEA300D11A30 /* ImageCache.swift */,
 				C3DF5B7C24C2549400F6D3EC /* Main.storyboard */,
 				C3DF5B8424C2549A00F6D3EC /* LaunchScreen.storyboard */,
 				C3DF5BAC24C256D600F6D3EC /* Assets */,
 				C3DF5B8724C2549A00F6D3EC /* Info.plist */,
-				89AA7A8D24CF1F600006B17F /* QuizViewModel.swift */,
-				892067A524D03EE300A52F7B /* UIImageView+Extension.swift */,
 			);
 			path = jQuiz;
 			sourceTree = "<group>";
@@ -268,14 +284,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				892067A924D0478C00A52F7B /* QuizState.swift in Sources */,
 				C3DF5B7B24C2549400F6D3EC /* ViewController.swift in Sources */,
 				C3DF5B7724C2549400F6D3EC /* AppDelegate.swift in Sources */,
-				892067A624D03EE300A52F7B /* UIImageView+Extension.swift in Sources */,
 				89AA7A8E24CF1F600006B17F /* QuizViewModel.swift in Sources */,
+				892067AB24D0480300A52F7B /* Async.swift in Sources */,
 				C3DF5B7924C2549400F6D3EC /* SceneDelegate.swift in Sources */,
 				C3DF5BB024C260A600F6D3EC /* Clue.swift in Sources */,
 				C3FBE53824C4DEA300D11A30 /* ImageCache.swift in Sources */,
-				C3FBE53624C2877C00D11A30 /* SoundManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
