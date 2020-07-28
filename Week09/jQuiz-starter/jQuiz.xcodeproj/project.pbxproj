@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		892067A924D0478C00A52F7B /* QuizState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892067A824D0478C00A52F7B /* QuizState.swift */; };
 		892067AB24D0480300A52F7B /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892067AA24D0480300A52F7B /* Async.swift */; };
+		892067AE24D049EA00A52F7B /* HTMLFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892067AD24D049EA00A52F7B /* HTMLFormat.swift */; };
 		89AA7A8E24CF1F600006B17F /* QuizViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AA7A8D24CF1F600006B17F /* QuizViewModel.swift */; };
 		C3DF5B7724C2549400F6D3EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5B7624C2549400F6D3EC /* AppDelegate.swift */; };
 		C3DF5B7924C2549400F6D3EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3DF5B7824C2549400F6D3EC /* SceneDelegate.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		892067A824D0478C00A52F7B /* QuizState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizState.swift; sourceTree = "<group>"; };
 		892067AA24D0480300A52F7B /* Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		892067AD24D049EA00A52F7B /* HTMLFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLFormat.swift; sourceTree = "<group>"; };
 		89AA7A8D24CF1F600006B17F /* QuizViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewModel.swift; sourceTree = "<group>"; };
 		C3DF5B7324C2549400F6D3EC /* jQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3DF5B7624C2549400F6D3EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				C3FBE53724C4DEA300D11A30 /* ImageCache.swift */,
+				892067AD24D049EA00A52F7B /* HTMLFormat.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				C3DF5B7724C2549400F6D3EC /* AppDelegate.swift in Sources */,
 				89AA7A8E24CF1F600006B17F /* QuizViewModel.swift in Sources */,
 				892067AB24D0480300A52F7B /* Async.swift in Sources */,
+				892067AE24D049EA00A52F7B /* HTMLFormat.swift in Sources */,
 				C3DF5B7924C2549400F6D3EC /* SceneDelegate.swift in Sources */,
 				C3DF5BB024C260A600F6D3EC /* Clue.swift in Sources */,
 				C3FBE53824C4DEA300D11A30 /* ImageCache.swift in Sources */,

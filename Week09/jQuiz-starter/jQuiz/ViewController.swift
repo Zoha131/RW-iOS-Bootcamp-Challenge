@@ -127,7 +127,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "quizCell")!
     let label = cell.viewWithTag(1000) as! UILabel
-    label.text = clues[indexPath.row]
+    
+    if let attributedString = clues[indexPath.row].htmlAttributedString(size: 17) {
+      label.attributedText = attributedString
+    } else{
+      
+      label.text = clues[indexPath.row]
+    }
+    
+    
     
     return cell
   }
