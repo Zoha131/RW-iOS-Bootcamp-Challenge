@@ -87,14 +87,52 @@ class ViewController: UIViewController {
   }
   @IBAction func onKick(_ sender: Any) {
     animations.insert(.kick)
+    animateLabel(message: "Kick animation added")
   }
 
   @IBAction func onBlink(_ sender: Any) {
     animations.insert(.blink)
+    animateLabel(message: "Blink animation added")
   }
 
   @IBAction func onBig(_ sender: Any) {
     animations.insert(.big)
+    animateLabel(message: "Translate animation added")
+  }
+
+  func animateLabel(message: String) {
+    let label = UILabel()
+
+    label.text = message
+    label.backgroundColor = .white
+    label.layer.borderColor = UIColor.green.cgColor
+    label.layer.borderWidth = 2
+    label.layer.cornerRadius = 6
+    label.layer.masksToBounds = true
+    label.textAlignment = .center
+
+    label.translatesAutoresizingMaskIntoConstraints = false
+
+    view.addSubview(label)
+    let bottomConstraint = label.bottomAnchor.constraint(equalTo: view.topAnchor)
+    NSLayoutConstraint.activate([
+      label.heightAnchor.constraint(equalToConstant: 50),
+      label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 75),
+      label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -75),
+      bottomConstraint
+    ])
+
+    view.layoutIfNeeded()
+
+    UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 10, animations: {
+      bottomConstraint.constant = 150
+      self.view.layoutIfNeeded()
+    })
+
+    UIView.animate(withDuration: 1, delay: 2, animations: {
+      bottomConstraint.constant = 0
+      self.view.layoutIfNeeded()
+    })
   }
 }
 
