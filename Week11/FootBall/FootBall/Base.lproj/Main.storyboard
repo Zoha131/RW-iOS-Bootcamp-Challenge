@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FootBall" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ground" translatesAutoresizingMaskIntoConstraints="NO" id="Cio-VM-UO1">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yp1-6p-bRP">
+                                <rect key="frame" x="282" y="762" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.28490834399999998" green="0.71604773119999998" blue="0.1195419521" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="AAZ-mS-1dD"/>
+                                    <constraint firstAttribute="width" constant="50" id="miM-gs-KiT"/>
+                                </constraints>
+                                <state key="normal" image="rectangle.stack.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="onBig:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Q4-n3-XwH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KzJ-P9-AuR">
+                                <rect key="frame" x="82" y="762" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.28490834399999998" green="0.71604773119999998" blue="0.1195419521" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0eI-7M-Xq3"/>
+                                    <constraint firstAttribute="width" constant="50" id="Yn9-3x-fgH"/>
+                                </constraints>
+                                <state key="normal" image="square.stack.3d.down.right.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="onKick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FGn-Q3-rrh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSQ-aV-aeZ">
+                                <rect key="frame" x="182" y="662" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.28490834399999998" green="0.71604773119999998" blue="0.1195419521" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="mpJ-J9-MQA"/>
+                                    <constraint firstAttribute="height" constant="50" id="p85-DC-p35"/>
+                                </constraints>
+                                <state key="normal" image="bolt.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="onBlink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VAl-QE-j5V"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9Y-G5-hsT" userLabel="Play">
+                                <rect key="frame" x="182" y="762" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="TLp-gR-H4t"/>
+                                    <constraint firstAttribute="width" constant="50" id="wEr-Ih-s5f"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="play.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="onPlay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V4q-zu-bBw"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="football" translatesAutoresizingMaskIntoConstraints="NO" id="UPY-H6-swU">
+                                <rect key="frame" x="167" y="508" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="3vO-H2-qQ8"/>
+                                    <constraint firstAttribute="height" constant="80" id="Ktl-g4-Hck"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yp1-6p-bRP" firstAttribute="top" secondItem="D9Y-G5-hsT" secondAttribute="top" id="2se-qx-odJ"/>
+                            <constraint firstItem="D9Y-G5-hsT" firstAttribute="leading" secondItem="KzJ-P9-AuR" secondAttribute="trailing" constant="50" id="5w3-iK-cpr"/>
+                            <constraint firstItem="KzJ-P9-AuR" firstAttribute="top" secondItem="D9Y-G5-hsT" secondAttribute="top" id="6cO-q7-0u8"/>
+                            <constraint firstItem="D9Y-G5-hsT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8T5-x1-VNF"/>
+                            <constraint firstAttribute="trailing" secondItem="Cio-VM-UO1" secondAttribute="trailing" id="9gI-NX-sg7"/>
+                            <constraint firstItem="UPY-H6-swU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="100" id="9zQ-DI-9Y9"/>
+                            <constraint firstItem="KzJ-P9-AuR" firstAttribute="bottom" secondItem="D9Y-G5-hsT" secondAttribute="bottom" id="AXe-FN-INd"/>
+                            <constraint firstAttribute="bottom" secondItem="Cio-VM-UO1" secondAttribute="bottom" id="PRp-Aw-9Tc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="D9Y-G5-hsT" secondAttribute="bottom" constant="50" id="adj-2W-IuS"/>
+                            <constraint firstItem="D9Y-G5-hsT" firstAttribute="top" secondItem="MSQ-aV-aeZ" secondAttribute="bottom" constant="50" id="dyI-xh-frP"/>
+                            <constraint firstItem="Cio-VM-UO1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="kdJ-fw-R7F"/>
+                            <constraint firstItem="MSQ-aV-aeZ" firstAttribute="trailing" secondItem="D9Y-G5-hsT" secondAttribute="trailing" id="o2v-d6-EIA"/>
+                            <constraint firstItem="UPY-H6-swU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pkQ-aB-6zZ"/>
+                            <constraint firstItem="Cio-VM-UO1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rgt-rx-vZc"/>
+                            <constraint firstItem="yp1-6p-bRP" firstAttribute="bottom" secondItem="D9Y-G5-hsT" secondAttribute="bottom" id="tEX-DB-a3V"/>
+                            <constraint firstItem="MSQ-aV-aeZ" firstAttribute="leading" secondItem="D9Y-G5-hsT" secondAttribute="leading" id="u2L-2b-lU1"/>
+                            <constraint firstItem="yp1-6p-bRP" firstAttribute="leading" secondItem="D9Y-G5-hsT" secondAttribute="trailing" constant="50" id="xI2-z6-jZa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="bigButton" destination="MSQ-aV-aeZ" id="YJQ-o7-jzp"/>
+                        <outlet property="bottomConstraint" destination="dyI-xh-frP" id="fmr-WS-nOD"/>
+                        <outlet property="dropButton" destination="yp1-6p-bRP" id="xJD-Ag-MVG"/>
+                        <outlet property="footballImage" destination="UPY-H6-swU" id="MIZ-Uv-Ksc"/>
+                        <outlet property="kickButton" destination="KzJ-P9-AuR" id="yr6-JM-CC5"/>
+                        <outlet property="leftConstraint" destination="xI2-z6-jZa" id="BIx-VG-3Gz"/>
+                        <outlet property="playButton" destination="D9Y-G5-hsT" id="vef-hm-wQ7"/>
+                        <outlet property="rightConstraint" destination="5w3-iK-cpr" id="QkW-Bl-zmf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="138"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bolt.fill" catalog="system" width="101" height="128"/>
+        <image name="football" width="111" height="111"/>
+        <image name="ground" width="1600" height="900"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="rectangle.stack.fill" catalog="system" width="128" height="122"/>
+        <image name="square.stack.3d.down.right.fill" catalog="system" width="124" height="128"/>
+    </resources>
+</document>
